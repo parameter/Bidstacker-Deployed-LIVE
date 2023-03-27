@@ -21,10 +21,8 @@ const Newsletter = ({ source }) => {
     }
 
     var elmTop = ref.current.getBoundingClientRect().top + window.scrollY;
-
     setElementOffsetTop(elmTop);
     setElementHeight(ref.current.clientHeight);
-
     window.addEventListener('scroll', onScroll);
 
     return () => {
