@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react'; 
 import DeliveryModal from './deliveryModal';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
@@ -65,8 +65,7 @@ function MapDeliveryLocation({ deliveries }) {
   }, [scriptIsLoaded, deliveries, initiateMap]);
 
   
-
-  const initiateMap = async () => {
+  const initiateMap = useCallback(async () => {
 
     if (typeof L !== 'undefined') {
       if(mapInstance){
@@ -118,7 +117,7 @@ function MapDeliveryLocation({ deliveries }) {
         }
       }
     }
-  };
+  },[addDeliveryMarkers, mapInstance, deliveries]);
 
   async function addDeliveryMarkers(map, deliveries) {
     if (!deliveries || deliveries.length === 0) {
