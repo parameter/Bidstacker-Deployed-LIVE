@@ -63,7 +63,6 @@ function MapDeliveryLocation({ deliveries }) {
   useEffect(() => {
     initiateMap();
   }, [scriptIsLoaded, deliveries, initiateMap]);
-
   
   const initiateMap = useCallback(async () => {
 
@@ -96,7 +95,6 @@ function MapDeliveryLocation({ deliveries }) {
         setCurrentPosition(newPos)
         console.log("currentPosition", newPos)
   
-
         if (marker) {
           map.removeLayer(marker);
           map.removeLayer(circle);
@@ -119,9 +117,8 @@ function MapDeliveryLocation({ deliveries }) {
     }
   },[addDeliveryMarkers, mapInstance, deliveries]);
 
-  async function addDeliveryMarkers(map, deliveries) {
+  const addDeliveryMarkers = useCallback(async () => {
     if (!deliveries || deliveries.length === 0) {
-
       return;
     }
 
@@ -168,7 +165,7 @@ function MapDeliveryLocation({ deliveries }) {
       }
       
     }
-  }
+  },[deliveries, ])
 
   
   async function geocodeAddress(address) {
