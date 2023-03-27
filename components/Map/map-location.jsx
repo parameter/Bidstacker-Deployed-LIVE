@@ -202,8 +202,7 @@ function MapDeliveryLocation({ deliveries }) {
         }}
         ref={mapDivRef}
       ></div>
-             <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-          <script src="leaflet-routing-machine.js"></script>
+            
 <div className="bg-white rounded-lg shadow overflow-hidden">
   <div className="p-4">
     <div className="relative">
