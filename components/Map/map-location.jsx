@@ -35,7 +35,7 @@ function MapDeliveryLocation({ deliveries }) {
       });
     }
     console.log('currentPosition',currentPosition);
-  }, [currentPosition]);
+  }, [currentPosition, mapInstance, lines]);
   
 
   useEffect(() => {
@@ -62,7 +62,7 @@ function MapDeliveryLocation({ deliveries }) {
 
   useEffect(() => {
     initiateMap();
-  }, [scriptIsLoaded, deliveries]);
+  }, [scriptIsLoaded, deliveries, initiateMap]);
 
   
 
