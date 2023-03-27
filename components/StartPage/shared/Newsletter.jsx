@@ -30,7 +30,7 @@ const Newsletter = ({ source }) => {
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  },[setElementOffsetTop, elementOffsetTop, elementHeight, setElementHeight])
+  },[setElementOffsetTop, elementOffsetTop, elementHeight, setElementHeight, setActiveHref, source])
 
   return (
     <div ref={ref} className="relative w-full bg-yellow dark:bg-gray-dark h-[400px] tablet:h-[600px]">
