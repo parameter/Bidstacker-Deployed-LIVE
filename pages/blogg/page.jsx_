@@ -1,0 +1,22 @@
+import Archive from '@/components/Blog/Archive';
+import Blog from '@/components/Blog/Blog';
+
+import { blog } from '../../blogg-json/blog';
+
+const Blogg = () => {
+  return (
+    <div className="bg-gray-light text-black dark:text-white pt-[175px] pb-[100px] px-4">
+      <div className="max-w-[1000px] mx-auto">
+        <h1 className="text-center pb-[50px] mb-2 ">Blogg</h1>
+        <div className="flex flex-col tablet:flex-row">
+          <div className="flex-1 border-r border-gray-300 mr-6">
+            <Blog blog={blog} />
+          </div>
+          <Archive blog={blog} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Blogg;
