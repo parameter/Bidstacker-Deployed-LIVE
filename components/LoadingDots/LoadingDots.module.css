@@ -8,10 +8,10 @@
   animation-duration: 1.4s;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
-  width: 4px;
-  height: 4px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: var(--accents-6);
+  background-color: hsl(0, 0%, 63%);
   display: inline-block;
   margin: 0 1px;
 }
@@ -38,6 +38,6 @@
 
 .child {
   margin-right: 12px;
-  color: var(--secondary);
+  color: hsl(0, 0%, 40%);
   font-size: 0.9rem;
 }

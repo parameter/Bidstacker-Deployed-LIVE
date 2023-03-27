@@ -13,12 +13,10 @@ export const config = {
   },
 };
 
-handler.post(...auths, async (req, res) => {
+handler.delete(...auths, async (req, res) => {
   if (!req.user) {
     return res.status(401).end();
   }
-
-  console.log('HERE 0');
 
   const result = await deleteProject({
     db: req.db,

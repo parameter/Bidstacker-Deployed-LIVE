@@ -13,7 +13,7 @@ const Header = ({ params }) => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
-    <div className="rounded-xl flex justify-between mr-auto ml-auto gap-2 px-4 mobile:px-10 pt-8 pb-4 mt-16">
+    <div className="flex justify-between mr-auto ml-auto pt-8 pb-4 mt-16">
       <div className="flex flex-col">
         <Link className="cursor-pointer" href={`/management/request/dashboard`}>
           <h2 className="hover:hover-test text-xl mobile:text-2xl font-semibold text-gray-800 text-left">

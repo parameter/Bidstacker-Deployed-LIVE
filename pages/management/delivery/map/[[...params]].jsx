@@ -6,11 +6,9 @@ import axios from 'axios';
 
 import dynamic from 'next/dynamic';
 
-const MapDeliveryLocation = dynamic(() => import('@/components/Map/map-location'), {
+const MapComponent = dynamic(() => import('@/components/Map/map-location'), {
   ssr: false
 });
-
-// import MapDeliveryLocation from '@/components/Map/map-location';
 
 const DeliveryMap = ({ params }) => {
   const router = useRouter();
@@ -32,12 +30,14 @@ const DeliveryMap = ({ params }) => {
       console.log('deliveriy', deliveries.data);
       setMyDeliveries(deliveries.data.deliveries);
     }
+    //adding comment
   };
 
+  console.log('myDeliveries',myDeliveries);
   
   return (
     <div className="">
-      {router.query.params && <MapDeliveryLocation deliveries={myDeliveries} />}
+      {router.query.params && <MapComponent deliveries={myDeliveries} />}
     </div>
   );
 };

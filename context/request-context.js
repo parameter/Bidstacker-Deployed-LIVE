@@ -21,7 +21,8 @@ export const RequestProvider = ({ children }) => {
   const { data: { user } = {} } = useCurrentUser();
   const [myRequests, setMyRequests] = useState({});
   const [myProjects, setMyProjects] = useState({});
-  const [isFetching, setIsFetching] = useState(true);
+  const [isPrelAdmin, setIsPrelAdmin] = useState(true);
+  const [loadingIndex, setLoadingIndex] = useState([]);
   const [socket, setSocket] = useState(false);
   const { newNotice } = useAppContext();
 
@@ -134,14 +135,12 @@ export const RequestProvider = ({ children }) => {
     const res = await axios.get('/api/requestor/myRequests');
     const requests = filterRequests(res.data);
     setMyRequests(requests);
-    setIsFetching(false);
   }, []);
 
   const getMyProjects = useCallback(async () => {
     const res = await fetch('/api/projects/get-all-projects');
     const data = await res.json();
     setMyProjects(data.result);
-    setIsFetching(false);
   }, []);
 
   const addRequestToProjectByGroupId = useCallback(
@@ -151,27 +150,42 @@ export const RequestProvider = ({ children }) => {
         groupId: groupId,
       });
       const data = res.data;
-      console.log('HEJHOPP!!!!', data);
 
-      if (data.success) {
-        // setMyProjects(data.result);
+      if (data.result) {
+        console.log('HEJHOPP!!!!', data.result);
+        setLoadingStatus(groupId, false);
       }
     },
     []
   );
 
   const deleteRequestFromProject = async (projectId, groupId) => {
-    const res = await axios.delete('/api/projects/delete-project-request', {
+    console.log('deleteRequestFromProject', projectId, groupId);
+    const res = await axios.post('/api/projects/delete-project-request', {
       projectId: projectId,
       groupId: groupId,
     });
     const data = res.data;
-    console.log('HEJHOPP!!!!', data);
-
-    if (data.success) {
-      // setMyProjects(data.result);
+    if (data.result) {
+      console.log('HEJHOPP!!!!', data.result);
+      setLoadingStatus(groupId, false);
     }
   };
+
+  const testingAdmin = () => {
+    setIsPrelAdmin(!isPrelAdmin);
+    /*     if (user && user.role === 'admin') {
+      return true;
+    }
+    return false; */
+  };
+
+  const setLoadingStatus = useCallback((groupId, loading) => {
+    setLoadingIndex((prevLoadingIndex) => ({
+      ...prevLoadingIndex,
+      [groupId]: loading,
+    }));
+  }, []);
 
   return (
     <RequestContext.Provider
@@ -183,7 +197,11 @@ export const RequestProvider = ({ children }) => {
         setMyProjects,
         addRequestToProjectByGroupId,
         deleteRequestFromProject,
-        isFetching,
+        isPrelAdmin,
+        testingAdmin,
+        loadingIndex,
+        setLoadingIndex,
+        setLoadingStatus,
       }}
     >
       {children}

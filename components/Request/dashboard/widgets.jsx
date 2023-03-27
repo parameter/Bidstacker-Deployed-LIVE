@@ -8,7 +8,7 @@ import Stats from './WidgetItems/stats';
 const Widgets = () => {
   return (
     <>
-      <div className="px-4 mobile:px-10 mobile:flex mb-4">
+      <div className="mobile:flex mb-4">
         <div className="w-full mobile:w-7/12">
           <Monthly />
           <Projects />

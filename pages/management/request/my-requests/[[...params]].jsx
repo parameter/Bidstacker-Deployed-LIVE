@@ -21,8 +21,8 @@ function MyRequest() {
     <>
       <div className="w-full bg-gray-100 py-10 mx-auto">
         <div className="max-w-[1000px] mx-auto mt-4 mobile:mt-12">
-          {/* Tillfällig margin ovan, sidan ligger i topp och inte nedanför nav? */}
           {!router.query.params && <AllRequests myRequests={myRequests} />}
+
           {router.query.params && !router.query.params[1] && (
             <Request
               params={router.query.params}

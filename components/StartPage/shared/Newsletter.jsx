@@ -21,14 +21,16 @@ const Newsletter = ({ source }) => {
     }
 
     var elmTop = ref.current.getBoundingClientRect().top + window.scrollY;
+
     setElementOffsetTop(elmTop);
     setElementHeight(ref.current.clientHeight);
+
     window.addEventListener('scroll', onScroll);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  },[setElementOffsetTop, elementOffsetTop, elementHeight, setElementHeight, setActiveHref, activeHref, source])
+  },[setElementOffsetTop, elementOffsetTop, elementHeight, setElementHeight, activeHref, setActiveHref, source])
 
   return (
     <div ref={ref} className="relative w-full bg-yellow dark:bg-gray-dark h-[400px] tablet:h-[600px]">

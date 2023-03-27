@@ -2,27 +2,35 @@
 
 import Link from 'next/link';
 import RequestItem from './RequestComponents/request-item';
-import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import {
+  QuestionMarkCircleIcon,
+  PencilSquareIcon,
+} from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
+import { useRequestContext } from 'context/request-context';
 
 export default function AllRequests({ myRequests }) {
+  const { isPrelAdmin } = useRequestContext();
   const router = useRouter();
   return (
     <>
-      <div className="rounded-xl pt-8 gap-2 px-4 mobile:px-10 pb-8">
+      <div className="rounded-xl pt-8 gap-2 pb-8">
         {!router.query.params && (
           <div>
-            <div className="flex flex-center flex-row font-light justify-between items-center mb-4">
+            <div className="flex items-center flex-row font-light justify-between mb-4">
               <h2 className="text-xl mobile:text-2xl font-semibold text-gray-800">
-                Mina förfrågningar
+                Förfrågningar
               </h2>
 
               <Link href={`/management/request/new`}>
-                <button>
-                  <span className="text-sm font-semibold text-black bg-orange py-2 px-3 rounded-xl">
-                    Ny förfrågan
-                  </span>
-                </button>
+                {isPrelAdmin && (
+                  <button>
+                    <span className="flex bg-orange py-2 px-2 rounded text-black font-semibold">
+                      <PencilSquareIcon className="h-6 w-6 stroke-1.5 mr-2" />
+                      Ny förfrågan
+                    </span>
+                  </button>
+                )}
               </Link>
             </div>
           </div>
@@ -36,7 +44,11 @@ export default function AllRequests({ myRequests }) {
         ) : (
           Object.keys(myRequests).map((groupId) => {
             return (
-              <RequestItem key={groupId} request={myRequests[groupId]} groupId={groupId} />
+              <RequestItem
+                key={groupId}
+                request={myRequests[groupId]}
+                groupId={groupId}
+              />
             );
           })
         )}

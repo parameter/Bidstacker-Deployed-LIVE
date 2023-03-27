@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { PencilSquareIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import { useRequestContext } from 'context/request-context';
+import { LoadingDots } from '@/components/LoadingDots';
 
 const Projects = () => {
   // const [projects, setProjects] = useState();
@@ -13,14 +14,20 @@ const Projects = () => {
   const [addClicked, setAddClicked] = useState(0);
   const inputRef = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
-  const { myProjects, getMyProjects, setMyProjects } = useRequestContext();
+  const { myProjects, getMyProjects, setMyProjects, isFetching, isPrelAdmin } =
+    useRequestContext();
 
-  console.log('myProjects', myProjects);
   const handleFocus = useCallback(() => {
     if (editingIndex !== null && inputRef.current) {
       inputRef.current.focus();
     }
   }, [editingIndex]);
+
+  const handleEnterButton = (e) => {
+    if (e.key === 'Enter') {
+      handleConfirmEdit();
+    }
+  };
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -53,8 +60,12 @@ const Projects = () => {
     setInput(myProjects[index].projectTitle);
   };
 
-  const handleConfirmEdit = (index) => {
-    const projectId = myProjects[index]._id;
+  const handleConfirmEdit = () => {
+    if (!myProjects[editingIndex]) {
+      return;
+    }
+
+    const projectId = myProjects[editingIndex]._id;
     setIsEditing(true);
 
     axios
@@ -77,23 +88,31 @@ const Projects = () => {
   };
 
   const handleDeleteItem = (index) => {
+    if (editingIndex) {
+      setDeletingIndex(null);
+      setEditingIndex(null);
+      return;
+    }
     setDeletingIndex(index);
   };
 
   const handleConfirmDelete = () => {
+    if (!deletingIndex) {
+      return;
+    }
     const projectId = myProjects[deletingIndex]._id;
     setDeletingIndex(null);
+    console.log(true);
 
     try {
       axios
-        .post('/api/projects/delete-project', {
+        .delete('/api/projects/delete-project', {
           data: {
             projectId,
           },
         })
         .then(() => {
-          setIsEditing(false);
-          setEditingIndex(null);
+          getMyProjects();
         })
         .catch((error) => {
           console.log(error);
@@ -111,25 +130,30 @@ const Projects = () => {
   return (
     <div className="bg-white text-gray-800 flex flex-col grow rounded-xl justify-between align-center p-6 mr-4">
       <section>
-        <div className="flex justify-between items-start">
-          <Link
-            className="cursor-pointer flex"
-            href={`/management/request/dashboard/projects`}
-          >
-            <h5 className="text-xl font-semibold leading-none text-gray-800 dark:text-white">
-              Projekt
-            </h5>
-          </Link>
-          <button
-            onClick={() => {
-              handleAddItem();
-            }}
-          >
-            <span className="text-sm font-semibold text-black bg-orange py-2 px-3 rounded-xl">
-              Nytt projekt
-            </span>
-          </button>
+        <div className="flex justify-between items-center">
+          <h5 className="text-xl font-semibold leading-none text-gray-800 dark:text-white">
+            Projekt
+          </h5>
+
+          {isPrelAdmin && (
+            <button
+              onClick={() => {
+                handleAddItem();
+              }}
+            >
+              <span className="flex bg-orange py-2 px-2 rounded text-black font-semibold">
+                <PencilSquareIcon className="h-6 w-6 stroke-1.5 mr-2" />
+                Nytt projekt
+              </span>
+            </button>
+          )}
         </div>
+
+        {isFetching && (
+          <div className="flex justify-center items-center">
+            <LoadingDots />
+          </div>
+        )}
 
         {myProjects.length === 0 && (
           <p className="text-sm font-light text-gray-dark mt-2">
@@ -151,6 +175,11 @@ const Projects = () => {
                       value={input}
                       onChange={handleInputChange}
                       required
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          handleEnterButton;
+                        }
+                      }}
                     />
                     <button
                       disabled={isEditing}
@@ -163,25 +192,29 @@ const Projects = () => {
                   <>
                     <p className="w-full py-1 flex items-center text-lg font-normal cursor-pointer hover:underline">
                       <Link
-                        href={`/management/request/dashboard/projects/${project._id}`}
+                        href={`/management/request/dashboard/projects/${project?._id}`}
                       >
-                        {project.projectTitle}
+                        {project?.projectTitle}
                       </Link>
                     </p>
-                    <button
-                      onClick={() => handleEditItem(index)}
-                      className="text-sm flex"
-                    >
-                      <PencilSquareIcon className="w-10 h-10 inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" />
-                    </button>
+                    {isPrelAdmin && (
+                      <button
+                        onClick={() => handleEditItem(index)}
+                        className="text-sm flex"
+                      >
+                        <PencilSquareIcon className="w-10 h-10 inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" />
+                      </button>
+                    )}
                   </>
                 )}
-                <button
-                  onClick={() => handleDeleteItem(index)}
-                  className="flex text-sm"
-                >
-                  <XCircleIcon className="w-10 h-10 inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" />
-                </button>
+                {isPrelAdmin && (
+                  <button
+                    onClick={() => handleDeleteItem(index)}
+                    className="flex text-sm"
+                  >
+                    <XCircleIcon className="w-10 h-10 inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" />
+                  </button>
+                )}
               </li>
             ))}
         </ul>

@@ -3,6 +3,7 @@ import _ from 'underscore';
 import { useCurrentUser } from '@/lib/user';
 import { useEffect } from 'react';
 import { useRequestContext } from 'context/request-context';
+import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 import AllRequests from '@/components/Request/my-request/all-requests';
 import Header from '@/components/Request/dashboard/header';
 import Status from '@/components/Request/dashboard/status';
@@ -14,34 +15,37 @@ import { useRouter } from 'next/router';
 
 function Dashboard() {
   const { data: { user } = {} } = useCurrentUser();
-  const { myRequests, getMyRequests, myProjects, getMyProjects, isFetching } =
-    useRequestContext();
+  const {
+    myRequests,
+    getMyRequests,
+    myProjects,
+    getMyProjects,
+    testingAdmin,
+    isPrelAdmin,
+  } = useRequestContext();
   const router = useRouter();
-
-  console.log('myRequests', myRequests);
 
   useEffect(() => {
     getMyRequests();
     getMyProjects();
   }, [getMyProjects, getMyRequests]);
 
-  if (isFetching) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <>
       <div className="w-full bg-gray-100 py-10">
-        <div className="max-w-[1000px] mx-auto mt-16 mobile:mt-12">
-          {/* Tillfällig margin ovan, sidan ligger i topp och inte nedanför nav? */}
-
-          {
-            <Header
-              user={user}
-              params={router.query.params || []}
-              id={router.query.params && router.query.params[0]}
-            />
-          }
+        <div className="max-w-[1000px] mx-auto mt-20 mobile:mt-12 px-2">
+          <Header
+            user={user}
+            params={router.query.params || []}
+            id={router.query.params && router.query.params[0]}
+          />
+          <button
+            onClick={testingAdmin}
+            className="flex w-full bg-purple-300 py-2 px-2 rounded text-white font-semibold mb-4"
+          >
+            <AdjustmentsHorizontalIcon className="h-6 w-6 stroke-1.5 mr-2" />
+            Admin test: {isPrelAdmin ? 'Admin' : 'Not Admin'}
+          </button>
 
           {!router.query.params && (
             <Status
@@ -85,6 +89,10 @@ function Dashboard() {
                   return item;
                 }
               })}
+              myProject={myProjects.find(
+                (project) => project._id === router.query.params[1]
+              )}
+              getMyProjects={getMyProjects}
             />
           )}
         </div>

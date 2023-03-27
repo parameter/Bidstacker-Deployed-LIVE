@@ -7,7 +7,7 @@ const handler = nc(ncOpts);
 
 handler.use(database);
 
-handler.put(...auths, async (req, res) => {
+handler.post(...auths, async (req, res) => {
   if (!req.user) {
     return res.status(401).end();
   }
@@ -19,7 +19,6 @@ handler.put(...auths, async (req, res) => {
       groupId: req.body.groupId,
     });
 
-    return;
     return res.status(200).json({ result: result });
   } catch (error) {
     console.error(error);

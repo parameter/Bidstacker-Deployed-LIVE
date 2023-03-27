@@ -27,7 +27,7 @@ const Hero = ({ hero }) => {
       contactName: target.contactName.value,
       role: hero.userRole
     });
-    console.log('result',result);
+    console.log('result2',result);
     setSending(false);
   }
 

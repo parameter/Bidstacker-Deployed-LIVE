@@ -8,7 +8,7 @@ const ThankYouNotice = ({ sending }) => {
             setShow(true);
             setTimeout(() => {
                 setShow(false);
-            }, 4000)
+            }, 6000)
         }
     },[sending]);
 
