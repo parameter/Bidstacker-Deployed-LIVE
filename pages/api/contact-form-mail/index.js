@@ -3,8 +3,8 @@ import { ncOpts } from '@/api-lib/nc';
 import { insertUser } from '@/api-lib/db';
 import nc from 'next-connect';
 import nodemailer from 'nodemailer';
-import HTML_EmailTemplate from '@/api-lib/html-email-template';
-import TEXT_EmailTemplate from '@/api-lib/text-email-template';
+import HTML_EmailTemplate from '@/api-lib/email-template-html';
+import TEXT_EmailTemplate from '@/api-lib/email-template-text';
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMPT_HOST,
