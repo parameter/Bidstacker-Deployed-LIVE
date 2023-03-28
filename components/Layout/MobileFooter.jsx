@@ -81,13 +81,7 @@ const MobileFooter = () => {
                   <UserHat className="h-3" />
                   Profil-inställningar
                 </div>
-                <div
-                  className="bg-white dark:bg-gray-dark hover:bg-gray-lighter dark:hover:bg-gray-light-dark transition duration-300 flex items-center gap-3 py-3 pl-3 border-t border-gray-100"
-                  onClick={onSignOut}
-                >
-                  <LoginIcon className="h-3" />
-                  Logga ut
-                </div>
+                
               </div>
             )}
           </div>
