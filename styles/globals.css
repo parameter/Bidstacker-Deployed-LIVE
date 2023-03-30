@@ -486,15 +486,56 @@ input:-webkit-autofill:focus {
 
 .animated_neon_gradient {
   background: 
-    radial-gradient(circle at bottom, #fff, transparent 80%), 
-    linear-gradient(to top, dodgerblue 0%, transparent 70%), 
-    linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4) 70%), #1e90ff;
+    radial-gradient(circle at 70%, #fff, transparent 60%), 
+    linear-gradient(to top, #F9B100 0%, transparent 70%), 
+    linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4) 70%), #458DAF;
 
   -webkit-animation: animated_neon_gradient_anim 11s infinite;
           animation: animated_neon_gradient_anim 11s infinite;
   
 }
 
+
+/* 
+  #FCFCFC - white 
+   #275d2b - green 
+    #F9B100 - yellow 
+   #4b3d30 - brown 
+  #458DAF - blue 
+*/ 
+
+
+@-webkit-keyframes animated_neon_gradient_anim {
+  0%, 100% {
+    background-color: #458DAF;
+  }
+  25% {
+    background-color: #228B29;
+  }
+  50% {
+    background-color: #F9B100;
+  }
+  75% {
+    background-color: #8D4C10;
+  }
+}
+
+@keyframes animated_neon_gradient_anim {
+  0%, 100% {
+    background-color: #458DAF;
+  }
+  25% {
+    background-color: #228B29;
+  }
+  50% {
+    background-color: #F9B100;
+  }
+  75% {
+    background-color: #8D4C10;
+  }
+}
+
+/*
 @-webkit-keyframes animated_neon_gradient_anim {
   0%, 100% {
     background-color: #1e90ff;
@@ -525,3 +566,4 @@ input:-webkit-autofill:focus {
   }
 }
 
+*/

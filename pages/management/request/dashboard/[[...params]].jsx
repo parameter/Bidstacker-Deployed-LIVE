@@ -30,6 +30,15 @@ function Dashboard() {
     getMyProjects();
   }, [getMyProjects, getMyRequests]);
 
+  console.log('myProjects',myProjects, Array.isArray(myProjects) );
+
+
+
+
+
+  return null;
+
+
   return (
     <>
       <div className="w-full bg-gray-100 py-10">
@@ -80,7 +89,7 @@ function Dashboard() {
             <Projects
               user={user}
               projectId={router.query.params[1]}
-              projectData={myProjects.find((item) => {
+              projectData={Object.values(myProjects).find((item) => {
                 return item._id === router.query.params[1];
               })}
               myRequests={myRequests}
@@ -89,7 +98,7 @@ function Dashboard() {
                   return item;
                 }
               })}
-              myProject={myProjects.find(
+              myProject={Object.values(myProjects).find(
                 (project) => project._id === router.query.params[1]
               )}
               getMyProjects={getMyProjects}

@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import CustomerService from './CustomerService';
 import FaqQuestions from './FaqQuestions';
-
+import general_settings from '@/content-json/general-settings-json';
+ 
 const TabsCustomerService = () => {
   const [tab, setTab] = useState('buyer');
 
@@ -142,10 +143,10 @@ const TabsCustomerService = () => {
           <div className="bg-[#f9b300] text-white text-lg flex-1 flex flex-col justify-center items-center rounded-xl p-8">
             <p className="text-base tablet:text-lg font-bold">Maila till</p>
             <Link
-              href="mailto:info@bidstacker.se"
+              href={"mailto:" + general_settings.email}
               className="cursor-pointer text-white text-base tablet:text-lg hover:underline"
             >
-              info@bidstacker.se
+              {general_settings.email}
             </Link>
           </div>
           <div className="bg-[#f9b300] text-white flex-1 flex flex-col justify-center items-center rounded-xl p-8">
@@ -153,10 +154,10 @@ const TabsCustomerService = () => {
               Ring mellan 09:00-15:00
             </p>
             <Link
-              href="tel:010000000"
+              href={"tel:" + general_settings.telephone}
               className="cursor-pointer text-white text-base tablet:text-lg hover:underline"
             >
-              010-00 00 00
+              {general_settings.telephone}
             </Link>
           </div>
         </div>

@@ -49,15 +49,12 @@ export async function editProjectTitle({ db, projectId, projectTitle }) {
 }
 
 export async function deleteProject({ db, projectId }) {
-  console.log('HERE 1');
   const _project = await db
     .collection('projects')
     .findOneAndDelete(
       { _id: new ObjectId(projectId) },
       { returnOriginal: false }
     );
-
-    console.log('HERE 2', _project);
 
   return _project;
 }
@@ -77,17 +74,16 @@ export async function updateProjectWithRequest({ db, projectId, groupId }) {
 }
 
 export async function deleteRequestFromProject({ db, projectId, groupId }) {
-  console.log('projectId', projectId);
-  console.log('groupId', groupId);
+  console.log('deleteRequestFromProject', projectId, groupId);
 
-  const _project = await db.collection('projects').findOneAndUpdate(
+  const _project = await db.collection('projects').updateOne(
     { _id: new ObjectId(projectId) },
     {
       $pull: {
         requests: { groupId: new ObjectId(groupId) },
       },
-    }
-    // { returnOriginal: false }
+    },
+    { returnOriginal: false }
   );
 
   return _project;

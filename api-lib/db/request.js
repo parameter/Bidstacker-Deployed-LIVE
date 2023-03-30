@@ -126,9 +126,12 @@ export async function insertRequest({
   // Get coordinates for the address
   const address = delivery.street + ', ' + delivery.postalCode + ', ' + delivery.city;
   const coordinates = await adressToCoordinates(address);
-  if(!coordinates){
-    throw new Error("Faild to get coordinates for address")
+  console.log('coordinates:', coordinates);
+  if (!coordinates) {
+    throw new Error("Failed to get coordinates for address");
   }
+
+
 
   /* The adding of data to the Models */
   const delivery_ = new DeliveryModel({

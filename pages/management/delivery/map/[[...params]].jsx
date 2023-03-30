@@ -1,19 +1,20 @@
-'use client';
-
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
-
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import axios from 'axios';
 
 const MapComponent = dynamic(() => import('@/components/Map/map-location'), {
   ssr: false
 });
 
-const DeliveryMap = ({ params }) => {
+const SelectedDeliveryInfo = dynamic(() => import('@/components/Map/selected-delivery-info'), {
+  ssr: false
+});
+
+function DeliveryMap() {
   const router = useRouter();
-  const [location, setLocation] = useState(null);
   const [myDeliveries, setMyDeliveries] = useState(null);
+  const [selectedDelivery, setSelectedDelivery] = useState(null);
 
   useEffect(() => {
     if (myDeliveries) {
@@ -22,24 +23,37 @@ const DeliveryMap = ({ params }) => {
     getAllDeliveries();
   }, [myDeliveries]);
 
-  
   const getAllDeliveries = async () => {
     var deliveries = await axios.get('/api/delivery/get-deliveries');
     
     if (deliveries.data) {
-      console.log('deliveriy', deliveries.data);
       setMyDeliveries(deliveries.data.deliveries);
+      setSelectedDelivery(deliveries.data.deliveries[0]);
     }
-    //adding comment
   };
-
-  console.log('myDeliveries',myDeliveries);
   
   return (
-    <div className="">
-      {router.query.params && <MapComponent deliveries={myDeliveries} />}
+    <div>
+      {myDeliveries && (
+        <MapComponent 
+          params={router.query.params}
+          deliveries={myDeliveries} 
+          setSelectedDelivery={setSelectedDelivery} 
+          id={router.query.params[0]}
+        />
+      )}
+      {!router.query.params && router.query.params && selectedDelivery === "info" && (
+        <SelectedDeliveryInfo 
+          params={router.query.params}
+          deliveryItem={selectedDelivery} 
+          onClose={() => setSelectedDelivery(null)} 
+          id={router.query.params[1]}
+
+        />
+      )}
     </div>
-  );
-};
+  )
+  
+}
 
 export default DeliveryMap;

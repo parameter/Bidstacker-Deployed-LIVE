@@ -8,6 +8,7 @@ import MailIcon from '../../../public/assets/svg/MailIcon';
 import PhoneIcon from '../../../public/assets/svg/PhoneIcon';
 import FormInput from '@/components/StartPage/forms/FormInput';
 import FormTextarea from '@/components/StartPage/forms/FormTextarea';
+import ThankYouNotice from '@/components/ThankYouNotice/ThankYouNotice';
 import general_settings from '@/content-json/general-settings-json';
 
 const ContactForm = () => {
@@ -19,17 +20,18 @@ const ContactForm = () => {
   const [message, setMessage] = useState('');
   const [characterLimit] = useState(30);
   const [terms, setTerms] = useState(false);
+  const [sending, setSending] = useState(undefined);
 
-  //   Form validation state
+  // Form validation state
   const [errors, setErrors] = useState({});
 
-  //   Setting button text on form submission
+  // Setting button text on form submission
   const [buttonText, setButtonText] = useState('Skicka');
 
   // Setting success or failure messages states
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
-
+ 
   // Validation check method
   const handleValidation = () => {
     let tempErrors = {};
@@ -74,6 +76,8 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setSending(true);
+
     let isValidForm = handleValidation();
 
     if (isValidForm) {
@@ -108,12 +112,15 @@ const ContactForm = () => {
       setDelivery(false);
       setMessage('');
       setTerms(false);
+      setSending(false);
     }
     
   };
 
   return (
     <>
+      <ThankYouNotice sending={sending} content={general_settings.formFeedback.contact} />
+
       <div className="bg-gray-light dark:bg-gray-dark text-black dark:text-white pt-[175px] pb-[100px] px-4">
         <h2 className="pb-[50px]">Kontakta oss</h2>
         <div className="max-w-[900px] mx-auto flex flex-col desktop:flex-row gap-4">
@@ -145,7 +152,8 @@ const ContactForm = () => {
               Öppettider: måndag-fredag 9-17. Lunchstängt 12-13.
             </p>
             <h3 className="mx-7 mb-6">Skicka ett meddelande till oss</h3>
-            <form onSubmit={handleSubmit}>
+            <form className="relative" onSubmit={handleSubmit}>
+              <div style={{display: (sending ? 'block' : 'none')}} className="animated_barberpole"></div>
               <div className="mb-6 px-6">
                 <FormInput
                   label="Företagsnamn"
@@ -247,12 +255,14 @@ const ContactForm = () => {
                     checked={terms}
                     onChange={handleOnChange}
                   />
-                  <p className="ml-4 text-[14px] text-gray-500">
-                    Jag har tagit del av{' '}
-                    <span className="link link-yellow">
-                      Bidstackers användarvillkor
-                    </span>{' '}
-                  </p>
+                  <Link className="underline" href="/villkor/anvandarvillkor">
+                    <p className="ml-4 text-[14px] text-gray-500">
+                      Jag har tagit del av{' '}
+                      <span className="link link-yellow">
+                        Bidstackers användarvillkor
+                      </span>{' '}
+                    </p>
+                  </Link>
                 </label>
               </div>
               {errors?.terms && terms === false && (

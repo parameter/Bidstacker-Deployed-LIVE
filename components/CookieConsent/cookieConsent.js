@@ -59,21 +59,25 @@ const CookieConsent = () => {
 
     const handleAnalyticsConsent = (event) => {
         setAnalyticsAllowed(event.target.checked);
-        setCookie('analytics-allowed', event.target.checked, 60);
+        // setCookie('analytics-allowed', event.target.checked, 60);
+        Cookies.set('analytics-allowed', (event.target.checked ? 'true' : 'false'), { expires: 60 });
     }
 
     const handleHotjarConsent = (event) => {
         setHotjarAllowed(event.target.checked);
-        setCookie('hotjar-allowed', event.target.checked, 60);
+        // setCookie('hotjar-allowed', event.target.checked, 60);
+        Cookies.set('hotjar-allowed', (event.target.checked ? 'true' : 'false'), { expires: 60 });
     }
  
     const closeBar = (event) => {
-        setCookie('cookiebar-closed', true, 60);
+        // setCookie('cookiebar-closed', true, 60);
+        Cookies.set('cookiebar-closed', (event.target.checked ? 'true' : 'false'), { expires: 60 });
         setOpen(false);
     }
 
     const openBar = (event) => {
-        setCookie('cookiebar-closed', false, 60);
+        // setCookie('cookiebar-closed', false, 60);
+        Cookies.set('cookiebar-closed', (event.target.checked ? 'true' : 'false'), { expires: 60 });
         setOpen(true);
     }
 
@@ -84,17 +88,27 @@ const CookieConsent = () => {
     const acceptAll = () => {
         setAnalyticsAllowed(true);
         setHotjarAllowed(true);
-        setCookie('analytics-allowed', true, 60);
-        setCookie('hotjar-allowed', true, 60);
-        setCookie('cookiebar-closed', true, 60);
+
+        // setCookie('analytics-allowed', true, 60);
+        // setCookie('hotjar-allowed', true, 60);
+        // setCookie('cookiebar-closed', true, 60);
+
+        Cookies.set('analytics-allowed', 'true', { expires: 60 });
+        Cookies.set('hotjar-allowed', 'true', { expires: 60 });
+        Cookies.set('cookiebar-allowed', 'true', { expires: 60 });
     }
 
     const denyAll = () => {
         setAnalyticsAllowed(false);
         setHotjarAllowed(false);
-        setCookie('analytics-allowed', false, 60);
-        setCookie('hotjar-allowed', false, 60);
-        setCookie('cookiebar-closed', true, 60);
+ 
+        // setCookie('analytics-allowed', false, 60);
+        // setCookie('hotjar-allowed', false, 60);
+        // setCookie('cookiebar-closed', true, 60);
+
+        Cookies.set('analytics-allowed', 'false', { expires: 60 });
+        Cookies.set('hotjar-allowed', 'false', { expires: 60 });
+        Cookies.set('cookiebar-allowed', 'false', { expires: 60 });
     }
   
     return <>

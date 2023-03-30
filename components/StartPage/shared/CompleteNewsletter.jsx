@@ -5,7 +5,8 @@ import { useState } from 'react';
 import FormInput from '../forms/FormInput';
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
-import ThankYouNotice from '@/components/Layout/ThankYouNotice';
+import ThankYouNotice from '@/components/ThankYouNotice/ThankYouNotice';
+import general_settings from '@/content-json/general-settings-json';
 
 const CompleteNewsletter = () => {
   const searchParams = useSearchParams();
@@ -45,7 +46,7 @@ const CompleteNewsletter = () => {
  
   return (<>
 
-    <ThankYouNotice sending={sending} />
+    <ThankYouNotice sending={sending} content={general_settings.formFeedback.newsletter} />
   
     <div className="bg-gray-light dark:bg-gray-dark text-black dark:text-white pt-[175px] pb-[100px] px-4">
       <h2 className="pb-[50px]">Nyhetsbrev</h2>
@@ -72,7 +73,7 @@ const CompleteNewsletter = () => {
               value={businessName}
               name="businessName"
               type="text"
-              pattern="^[A-ZÜÄÖÅa-züäöå0-9 ]{2,60}$"
+              pattern="^[A-ZÜÄÖÅa-züäöå0-9 -]{2,60}$"
               required={true}
               onChange={(e) => setBusinessName(e.target.value)}
             />
