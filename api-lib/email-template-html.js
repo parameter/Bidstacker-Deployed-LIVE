@@ -13,7 +13,7 @@ export default ({ title, content_paragraphs, signoff, assets_domain }) => {
 
                 <img style="margin-bottom: 20px; margin-left: 38px;" src="${assets_domain}/html-email-assets/bidstacker-logo.jpg" alt="logga.bidstacker" width="250" height="51" />
 
-                <div style="position: relative; padding-top: 33px; padding-left:62px; background-repeat: no-repeat; width:100%; min-height:100px; background-image:url(${assets_domain}/html-email-assets/header-angle.jpg);background-size: 100% auto;">
+                <div style="position: relative; padding-top: 33px; padding-left:62px; background-repeat: no-repeat; width:100%; min-height:100px; background-image:url(${assets_domain}/html-email-assets/header-angle.jpg); background: #f9b300; background-size: 100% auto; background-position: bottom;">
                     <p style="margin: 0;font-size:24px;font-weight:600;padding-right: 20px;line-height:30px;color:#333333;font-family:Open Sans,Helvetica,Arial;">${title}</p>
                 </div>
             
