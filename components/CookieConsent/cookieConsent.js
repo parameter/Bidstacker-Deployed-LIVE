@@ -89,26 +89,26 @@ const CookieConsent = () => {
         setAnalyticsAllowed(true);
         setHotjarAllowed(true);
 
-        // setCookie('analytics-allowed', true, 60);
-        // setCookie('hotjar-allowed', true, 60);
-        // setCookie('cookiebar-closed', true, 60);
-
         Cookies.set('analytics-allowed', 'true', { expires: 60 });
         Cookies.set('hotjar-allowed', 'true', { expires: 60 });
         Cookies.set('cookiebar-allowed', 'true', { expires: 60 });
+
+        setTimeout(() => {
+            setOpen(false);
+        },900);
     }
 
     const denyAll = () => {
         setAnalyticsAllowed(false);
         setHotjarAllowed(false);
- 
-        // setCookie('analytics-allowed', false, 60);
-        // setCookie('hotjar-allowed', false, 60);
-        // setCookie('cookiebar-closed', true, 60);
 
         Cookies.set('analytics-allowed', 'false', { expires: 60 });
         Cookies.set('hotjar-allowed', 'false', { expires: 60 });
         Cookies.set('cookiebar-allowed', 'false', { expires: 60 });
+
+        setTimeout(() => {
+            setOpen(false);
+        },900);
     }
   
     return <>
@@ -134,8 +134,8 @@ const CookieConsent = () => {
                     </p>
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
-                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Acceptera alla</button>
-                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Avvisa alla</button>
+                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
+                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Avvisa alla</button>
                 </div>
             </div>
             
@@ -161,8 +161,8 @@ const CookieConsent = () => {
                     </div>
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
-                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Acceptera alla</button>
-                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Avvisa alla</button>
+                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
+                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Avvisa alla</button>
                 </div>
             </div>
 
