@@ -55,7 +55,7 @@ handler.post(
     });
       
     try {
-        const response = await mailchimp.lists.addListMember('4d27389466', {
+        const response = await mailchimp.lists.addListMember('8a4eeba632', {
             email_address: email,
             status: "subscribed",
             merge_fields: {
