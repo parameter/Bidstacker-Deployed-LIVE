@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { blog } from '@/content-json/blogg-json';
 import { v4 as uuidv4 } from 'uuid';
 
-const articel = () => {
+const Article = () => {
   const router = useRouter();
   const { page } = router.query;
 
@@ -62,4 +62,4 @@ const articel = () => {
   );
 };
 
-export default articel;
+export default Article;
