@@ -141,7 +141,12 @@ input:-webkit-autofill:focus {
   position: relative;
   filter: url(#threshold) blur(0.6px);
   text-align: center;
-  width: 260px;
+  width: 320px;
+}
+@media (max-width: 1280px) {
+  .animated_morphing_words_container {
+    width: 220px;
+  }
 }
 @media (max-width: 960px) {
   .animated_morphing_words_container {

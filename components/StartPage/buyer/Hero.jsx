@@ -139,10 +139,10 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
     <div ref={heroWrapperRef} className='overflow-hidden relative h-[calc(100vh-60px)] mobile:h-[calc(100vh-60px)] tablet:h-full desktop:h-full mobile:flex-col flex flex-row justify-center'>
       <div className="relative flex flex-col tablet:flex-row mobile:pt-20 h-[100vh] justify-end items-center z-20">
         <div className='pb-8 px-0 mobile:px-5 mb-12 mobile:mb-12 tablet:mb-0 tablet:min-h-[600px] flex flex-col justify-end w-full  z-20 '>
-          <h1 className={fontColor ? 'mb-2 text-orange headline-shadow pl-6 flex flex-row flex-wrap' : 'headline-shadow mb-2 pl-6 flex flex-row flex-wrap'}>
+          <h1 className={fontColor ? 'mb-2 text-orange headline-shadow pl-6 flex flex-row flex-wrap text-3xl tablet:text-5xl desktop:text-7xl' : 'text-3xl tablet:text-5xl desktop:text-7xl headline-shadow mb-2 pl-6 flex flex-row flex-wrap'}>
             EN&nbsp;
             
-            <span className="animated_morphing_words_container">
+            <span className="animated_morphing_words_container text-[#76A37A]">
               <span ref={animatedWord_one}>{animatedWordText_one}</span>
               <span ref={animatedWord_two}>{animatedWordText_two}</span>
             </span>
@@ -162,35 +162,25 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
               </defs>
           </svg>
           {/* END - FOR the animated words above - END */}
-          <h3 className={fontColor ? 'text-2xl leading-[28px] mb-6 text-white headline-shadow px-6' : 'text-2xl leading-[28px] mb-6 headline-shadow px-6'}>{subheading}</h3>
+          <h3 className={fontColor ? 'text-xl tablet:text-2xl leading-[28px] mb-6 text-white headline-shadow px-6' : 'text-xl tablet:text-2xl leading-[28px] mb-6 headline-shadow px-6'}>{subheading}</h3>
           <div className='flex flex-wrap gap-3 tablet:gap-5 px-6'>
             <Link href='/hitta-byggvaror'>
               <button
-                className={`rounded-full text-sm px-5 py-2.5 text-center ${
-                  pathname === '/hitta-byggvaror' ? 'btn btn-yellow font-bold' : 'btn btn-white font-bold'
-                }`}
+                className={`rounded-full text-base tablet:text-lg px-8 py-4 font-semibold text-center bg-yellow rounded-3xl font-bold`}
               >
                 JÄMFÖR OFFERTER
               </button>
             </Link>
             <Link href='/bli-byggvaruhandlare'>
               <button
-                className={`rounded-full text-sm px-5 py-2.5 text-center ${
-                  pathname === '/bli-byggvaruhandlare'
-                    ? 'btn btn-yellow font-bold'
-                    : 'btn btn-white font-bold'
-                }`}
+                className={`rounded-full bg-[#425861] text-white font-semibold text-base tablet:text-lg px-8 rounded-3xl py-4 text-center`}
               >
                 SÄLJ BYGGMATERIAL
               </button>
             </Link>
             <Link href='/leverera-byggvaror'>
               <button
-                className={`rounded-full text-sm px-5 py-2.5 text-center ${
-                  pathname === '/leverera-byggvaror'
-                    ? 'btn btn-yellow font-bold'
-                    : 'btn btn-white font-bold'
-                }`}
+                className={`rounded-full bg-[#76A37A] text-base tablet:text-lg font-semibold px-8 py-4 rounded-3xl text-center`}
               >
                 LEVERERA BYGGVAROR
               </button>

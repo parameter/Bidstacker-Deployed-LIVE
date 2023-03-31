@@ -96,7 +96,7 @@ const Navbar = () => {
           >
 
             <div className="absolute right-0 flex flex-row items-center gap-2">
-              {/* !user ? (
+              {!user ? (
                 <Link
                   href="/login"
                   className="hidden tablet:inline font-bold text-lg hover:underline text-white"
@@ -105,8 +105,8 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <UserMenu />
-              ) */}
-            
+              )}
+
               <div className="mx-6">
                 <Hamburger
                   size={30}

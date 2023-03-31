@@ -50,7 +50,7 @@ handler.post(
 
     // mailchimp 
     mailchimp.setConfig({
-        apiKey: process.env.NEXT_MAILCHIMP_API_KEY,
+        apiKey: process.env.NEXT_MAILCHIMP_API_KEY, // 5a7fed3bd95ffe6f7a2a6fa844c3439c-us18
         server: process.env.NEXT_MAILCHIMP_SERVER,
     });
       
