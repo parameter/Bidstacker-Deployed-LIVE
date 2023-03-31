@@ -128,7 +128,7 @@ const ContactForm = () => {
             <p className="px-8 pt-8 mb-5 leading-relaxed tracking-normal">
               Välkommen att höra av dig till oss vid frågor. Du hittar även
               många svar under{' '}
-              <Link href="/customerservice">
+              <Link href="/kundservice">
                 <span className="link link-yellow">vanliga frågor</span>
               </Link>
               . Övriga frågor? Mejla oss!
