@@ -23,15 +23,11 @@ const InjectedScripts = () => {
         }
         return "";
     }
-
-    console.log('analyticsAllowed', analyticsAllowed, Cookies.get('analytics-allowed'));
-    console.log('hotjarAllowed', hotjarAllowed, Cookies.get('hotjar-allowed'));
     
     return (
     <>
         {true === analyticsAllowed || Cookies.get('analytics-allowed') === 'true' && 
             <>
-                {console.log('InjectedScripts', analyticsAllowed)}
                 <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`} strategy='afterInteractive' />
                 <Script id="google-analytics" strategy='afterInteractive'>
                     {`

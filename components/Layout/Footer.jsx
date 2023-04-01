@@ -6,6 +6,7 @@ import TwittedIcon from '../../public/assets/svg/TwittedIcon';
 import Image from 'next/image';
 
 const Footer = ({ children }) => {
+
   return (
     <footer className="relative px-4 pt-4 pb-12 bg-white dark:bg-black">
       <div className="container mx-auto px-10 mt-10 tablet:flex tablet:justify-between">

@@ -9,6 +9,7 @@ import CookieConsent from '@/components/CookieConsent/cookieConsent';
 import InjectedScripts from '@/components/CookieConsent/injectedScripts';
 
 export default function RootLayout({ children, params }) {
+
   return (
     <html lang="en">
       <head>

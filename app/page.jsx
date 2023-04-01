@@ -1,4 +1,4 @@
-import Hero from '../components/StartPage/buyer/Hero';
+import Hero from '../components/StartPage/Hero';
 import Link from 'next/link';
 import Newsletter from '../components/StartPage/shared/Newsletter';
 import BuyerStepGuideDesktop from '../components/StartPage/buyer/BuyerStepGuideDesktop';

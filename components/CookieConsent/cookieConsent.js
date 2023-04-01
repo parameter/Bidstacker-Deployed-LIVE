@@ -18,13 +18,17 @@ const CookieConsent = () => {
 
         const cookiebarClosed = Cookies.get('cookiebar-closed');
 
+        console.log(cookiebarClosed, typeof cookiebarClosed);
         if (cookiebarClosed === 'false' || typeof cookiebarClosed === 'undefined') {
+            console.log('HERE');
             setOpen(true);
+        } else {
+            setOpen(false);
         }
 
         setInitiated(true);
 
-    },[open, initiated, setInitiated]);
+    },[open, initiated, setInitiated, Cookies.get('cookiebar-closed')]);
 
     useEffect(() => {
         console.log('checking cookies 1', analyticsRef.current, hotjarRef.current);
@@ -73,7 +77,7 @@ const CookieConsent = () => {
  
     const closeBar = (event) => {
         // setCookie('cookiebar-closed', true, 60);
-        Cookies.set('cookiebar-closed', (event.target.checked ? 'true' : 'false'), { expires: 60 });
+        Cookies.set('cookiebar-closed', (Cookies.get('cookiebar-closed') ? 'true' : 'false'), { expires: 60 });
         setOpen(false);
     }
 
@@ -93,7 +97,7 @@ const CookieConsent = () => {
 
         Cookies.set('analytics-allowed', 'true', { expires: 60 });
         Cookies.set('hotjar-allowed', 'true', { expires: 60 });
-        Cookies.set('cookiebar-allowed', 'true', { expires: 60 });
+        Cookies.set('cookiebar-closed', 'true', { expires: 60 });
 
         setTimeout(() => {
             setOpen(false);
@@ -106,7 +110,7 @@ const CookieConsent = () => {
 
         Cookies.set('analytics-allowed', 'false', { expires: 60 });
         Cookies.set('hotjar-allowed', 'false', { expires: 60 });
-        Cookies.set('cookiebar-allowed', 'false', { expires: 60 });
+        Cookies.set('cookiebar-closed', 'true', { expires: 60 });
 
         setTimeout(() => {
             setOpen(false);
@@ -141,9 +145,9 @@ const CookieConsent = () => {
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
 
-                    <button onClick={anpassaKakor} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Anpassa</button>
                     <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 bg-[#CCF8CF] border-green-cta focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
-                    
+                    <button onClick={anpassaKakor} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Anpassa</button>
+
                 </div>
             </div>
             

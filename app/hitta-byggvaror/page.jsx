@@ -27,11 +27,11 @@ export default function Requestor() {
       },
       {
         title: 'Acceptera Offerten!',
-        subTitle: ['Få flera offertförslag på byggmaterial', 'Acceptera offerten'],
+        subTitle: ['Betala med kort eller genom faktura', 'Säljaren packar ordern'],
       },
       {
         title: 'Klart!',
-        subTitle: ['Betala med kort eller genom faktura', 'Utkörning eller upphämtning?', 'Välj det alternativ som passar!'],
+        subTitle: ['Utkörning eller upphämtning?', 'Välj det alternativ som passar!'],
       },
     ],
   };
