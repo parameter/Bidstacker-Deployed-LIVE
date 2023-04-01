@@ -47,7 +47,7 @@ const InjectedScripts = () => {
 
         {true === hotjarAllowed || Cookies.get('hotjar-allowed') === 'true' && 
 
-          <Script id="google-analytics" strategy='afterInteractive'>
+          <Script id="hotjar_script" strategy='afterInteractive'>
             {`
             (function(h,o,t,j,a,r){
               h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
