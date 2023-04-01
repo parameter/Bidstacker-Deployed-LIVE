@@ -23,6 +23,9 @@ const InjectedScripts = () => {
         }
         return "";
     }
+
+    console.log('analyticsAllowed', analyticsAllowed, Cookies.get('analytics-allowed'));
+    console.log('hotjarAllowed', hotjarAllowed, Cookies.get('hotjar-allowed'));
     
     return (
     <>
