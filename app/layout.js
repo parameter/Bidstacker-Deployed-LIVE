@@ -13,6 +13,7 @@ export default function RootLayout({ children, params }) {
     <html lang="en">
       <head>
         <HeadComp />
+        <InjectedScripts />
       </head>
       <body>
         <AppProvider>
@@ -20,7 +21,6 @@ export default function RootLayout({ children, params }) {
           <main>{children}</main>
           <Footer>
             <CookieConsent />
-            <InjectedScripts />
           </Footer>
         </AppProvider>
       </body>
