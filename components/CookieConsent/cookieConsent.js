@@ -110,6 +110,10 @@ const CookieConsent = () => {
             setOpen(false);
         },900);
     }
+
+    const anpassaKakor = () => {
+        setSettingsOpen(true);
+    }
   
     return <>
      {open === true ?  
@@ -134,8 +138,10 @@ const CookieConsent = () => {
                     </p>
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
-                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
-                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Avvisa alla</button>
+
+                    <button onClick={anpassaKakor} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Anpassa</button>
+                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 bg-[#CCF8CF] border-green-cta focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
+                    
                 </div>
             </div>
             
@@ -161,8 +167,10 @@ const CookieConsent = () => {
                     </div>
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
-                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
-                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Avvisa alla</button>
+
+                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn border-green-cta bg-[#CCF8CF] whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
+                    <button onClick={() => { setOpen(false) }} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Tillåt urval</button>
+                
                 </div>
             </div>
 
