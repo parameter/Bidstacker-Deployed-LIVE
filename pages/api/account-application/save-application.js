@@ -49,13 +49,13 @@ handler.post(
     }
 
     // mailchimp 
-    mailchimp.setConfig({
-        apiKey: process.env.NEXT_MAILCHIMP_API_KEY, // 5a7fed3bd95ffe6f7a2a6fa844c3439c-us18
+    mailchimp.setConfig({ 
+        apiKey: process.env.NEXT_MAILCHIMP_API_KEY,
         server: process.env.NEXT_MAILCHIMP_SERVER,
     });
       
     try {
-        const response = await mailchimp.lists.addListMember('8a4eeba632', {
+        const response = await mailchimp.lists.addListMember(process.env.NEXT_MAILCHIMP_LISTID, {
             email_address: email,
             status: "subscribed",
             merge_fields: {
