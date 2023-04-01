@@ -13,7 +13,7 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
             alt="Bidstacker logotype"
             width={220}
             height={240}
-            className="absolute right-[20%] top-[22%] mobile:top-1/4 w-[190px] mobile:w-[220px] desktop:w-[280px]"
+            className="absolute right-[20%] top-[19%] mobile:top-1/4 w-[190px] mobile:w-[220px] desktop:w-[280px]"
           />
           <AnimatedWords fontColor={fontColor} />
           {/* FOR the animated words above  */}
