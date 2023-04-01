@@ -9,6 +9,7 @@ import InstagramIcon from '../../../public/assets/svg/InstagramIcon';
 import TwittedIcon from '../../../public/assets/svg/TwittedIcon';
 import { useCurrentUser } from '@/lib/user';
 import { usePathname } from 'next/navigation';
+import general_settings from '@/content-json/general-settings-json';
 
 const menyArray = {
   left_column: [
@@ -93,14 +94,14 @@ const MenuOverlay = ({ isNavbarOpen }) => {
         </div>
         <div className="h-[50px] flex justify-center gap-10 items-center mt-4">
           <p className="hidden tablet:block text-base font-bold text-gray-400">
-            Bidstacker AB
+            Bidstacker
           </p>
           <li className="hidden tablet:block">
             <a
-              href=""
+              href={"tel:" + general_settings.telephone}
               className="text-base font-bold text-white hover:underline"
             >
-              010-00 000 00
+              {general_settings.telephone}
             </a>
           </li>
           <li className="hidden tablet:block">

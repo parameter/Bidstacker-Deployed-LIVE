@@ -63,6 +63,7 @@ export async function insertUser(db, { email, originalPassword, bio = '', name, 
     bio,
     role,
     masterAccountId,
+    createdAt: new Date()
   };
 
   const password = await bcrypt.hash(originalPassword, 10);

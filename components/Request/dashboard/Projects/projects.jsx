@@ -14,13 +14,7 @@ import { ProjectTeam } from './project-team';
 import Link from 'next/link';
 import { LoadingDots } from '@/components/LoadingDots';
 
-const Projects = ({
-  projectData,
-  projectId,
-  groupId,
-  myProject,
-  getMyProjects,
-}) => {
+const Projects = ({ projectData, projectId, groupId, myProject, getMyProjects }) => {
   const [showAddedRequest, setShowAddedRequest] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const { getMyRequests, myRequests, isPrelAdmin } = useRequestContext();
@@ -29,8 +23,6 @@ const Projects = ({
     transform: showAddedRequest ? 'rotate(180deg)' : '',
     transition: 'transform 150ms ease',
   };
-
-  console.log('myProject.requests', myProject.requests);
 
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -51,9 +43,9 @@ const Projects = ({
       {projectData ? (
         <>
           <div className="rounded-xl flex flex-col justify-between md:px-10 pb-8">
-            <section className="rounded-xl p-4 mb-4 border-2 bg-gray-200">
+            <section className="rounded-xl p-6 mb-4 border-2 bg-gray-200">
               <h1 className="text-3xl md:text-3xl font-semibold mb-2 mt-4 text-gray-800">
-                Projekt: {projectData.projectTitle}
+                {projectData.projectTitle}
               </h1>
               <p className="text-xs text-gray-400 mb-2">
                 Skapad {projectData.createdAt.slice(0, 10)}

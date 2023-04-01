@@ -43,7 +43,7 @@ const Reseller = () => {
                     </div>
                     <a
                       href="#"
-                      class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                      className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
                     >
                       <EnvelopeIcon className="h-6 w-6" />
                     </a>
@@ -72,7 +72,7 @@ const Reseller = () => {
                     </div>
                     <a
                       href="#"
-                      class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                      className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
                     >
                       <EnvelopeIcon className="h-6 w-6" />
                     </a>
@@ -95,7 +95,7 @@ const Reseller = () => {
                     </div>
                     <a
                       href="#"
-                      class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                      className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
                     >
                       <EnvelopeIcon className="h-6 w-6" />
                     </a>
@@ -124,7 +124,7 @@ const Reseller = () => {
                     </div>
                     <a
                       href="#"
-                      class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                      className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
                     >
                       <EnvelopeIcon className="h-6 w-6" />
                     </a>
@@ -153,7 +153,7 @@ const Reseller = () => {
                     </div>
                     <a
                       href="#"
-                      class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                      className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-800 rounded-full hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
                     >
                       <EnvelopeIcon className="h-6 w-6" />
                     </a>

@@ -30,7 +30,7 @@ const Card = () => {
                     type="button"
                   >
                     <svg
-                      class="w-6 h-6"
+                      className="w-6 h-6"
                       aria-hidden="true"
                       fill="currentColor"
                       viewBox="0 0 20 20"
@@ -55,10 +55,10 @@ const Card = () => {
                 />
               </div>
               <div className="flex flex-col ml-6">
-                <h5 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                <h5 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
                   Lotta
                 </h5>
-                <span class="text-sm text-gray-400 dark:text-gray-400">
+                <span className="text-sm text-gray-400 dark:text-gray-400">
                   Byggare
                 </span>
               </div>
@@ -94,17 +94,17 @@ const Card = () => {
                 </div>
               </div>
             </div>
-            <div class="flex items-center space-x-2 mobile:mt-6 mb-4">
+            <div className="flex items-center space-x-2 mobile:mt-6 mb-4">
               <a
                 href="#"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-gray-200 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-gray-200 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
               >
                 <UserPlusIcon className="h-6 w-6 mr-2" />
                 Add
               </a>
               <a
                 href="#"
-                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-gray-200 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-gray-200 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
               >
                 <EnvelopeIcon className="h-6 w-6 mr-2" />
                 Message

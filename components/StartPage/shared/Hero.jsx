@@ -6,7 +6,8 @@ import Image from 'next/image';
 import FormInput from '../forms/FormInput';
 import StepGuide from './StepGuide';
 import saveAccountApplication from '@/lib/save-account-application';
-import ThankYouNotice from '@/components/Layout/ThankYouNotice';
+import ThankYouNotice from '@/components/ThankYouNotice/ThankYouNotice';
+import general_settings from '@/content-json/general-settings-json';
 
 const Hero = ({ hero }) => {
   const [userEmail, setUserEmail] = useState('');
@@ -47,8 +48,7 @@ const Hero = ({ hero }) => {
    
   return (<>
 
-
-    <ThankYouNotice sending={sending} />
+    <ThankYouNotice sending={sending} content={general_settings.formFeedback.account} />
 
     <div className={`bg-[url('/assets/img/bg-buyer.webp')] bg-cover bg-fixed`}>
       <div
@@ -101,7 +101,7 @@ const Hero = ({ hero }) => {
                     value={businessName}
                     name="businessName"
                     type="text"
-                    pattern="^[A-ZÜÄÖÅa-züäöå0-9 ]{2,60}$"
+                    pattern="^[A-ZÜÄÖÅa-züäöå0-9 -]{2,60}$"
                     required={true}
                     onChange={(e) => setBusinessName(e.target.value)}
                   />
@@ -133,7 +133,7 @@ const Hero = ({ hero }) => {
 
                 <div className="flex items-center gap-2 mb-3 ml-2 px-6">
                   <input type="checkbox" required />
-                  <Link className="underline" href="/villkor-och-integritetspolicy">
+                  <Link className="underline" href="/villkor/anvandarvillkor">
                     <span className="text-gray-700 text-sm">
                       Jag godkänner Bidstackers användarvillkor.
                     </span>

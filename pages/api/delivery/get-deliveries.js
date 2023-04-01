@@ -1,7 +1,6 @@
 import { auths, database } from '@/api-lib/middlewares';
 import { ncOpts } from '@/api-lib/nc';
 import nc from 'next-connect';
-import { ObjectId } from 'mongodb';
 
 const handler = nc(ncOpts);
 
@@ -13,27 +12,27 @@ handler.get(...auths, async (req, res) => {
   }
   console.log('User ID:', req.user._id);
 
-  // const request_metadata = await req.db
-  //   .collection('request-metadata')
-  //   .find({ requestor: req.user._id })
-  // .toArray();
+  const request_metadata = await req.db
+    .collection('request-metadata')
+    .find({ requestor: req.user._id })
+  .toArray();
 
-  // console.log('request_metadata:', request_metadata);
+  console.log('request_metadata:', request_metadata);
 
-  // const groupIds = [];
-  // request_metadata.forEach((item) => {
-  //   if (groupIds.indexOf(item.groupId) === -1) {
-  //     groupIds.push(item.groupId);
-  //   }
-  // });
-  // console.log('groupIds:', groupIds);
+  const groupIds = [];
+  request_metadata.forEach((item) => {
+    if (groupIds.indexOf(item.groupId) === -1) {
+      groupIds.push(item.groupId);
+    }
+  });
+  console.log('groupIds:', groupIds);
 
   const deliveries = await req.db.collection('deliveries').find().toArray();
   console.log('deliveries:', deliveries);
 
   res.send({
     result: 'success',
-    // request_metadata: request_metadata,
+    request_metadata: request_metadata,
     // request_items: request_items,
     deliveries: deliveries,
   });

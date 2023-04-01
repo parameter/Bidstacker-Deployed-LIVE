@@ -51,6 +51,8 @@ const steps_content = {
 
 export default function Home() {
 
+  console.log('HERE is page from server');
+
   return (
     <>
       <Hero

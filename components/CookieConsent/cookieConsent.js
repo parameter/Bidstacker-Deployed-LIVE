@@ -27,12 +27,14 @@ const CookieConsent = () => {
     },[open, initiated, setInitiated]);
 
     useEffect(() => {
+        console.log('checking cookies 1', analyticsRef.current, hotjarRef.current);
         if (!analyticsRef.current || !hotjarRef.current) {
             return;
         }
+        console.log('checking cookies', Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
         analyticsRef.current.checked = (Cookies.get('analytics-allowed') === 'true');
         hotjarRef.current.checked = (Cookies.get('hotjar-allowed') === 'true');
-    },[]);
+    },[analyticsRef.current, hotjarRef.current, analyticsAllowed, hotjarAllowed]);
 
     const setCookie = (cname, cvalue, exdays) => {
         const d = new Date();
@@ -89,26 +91,30 @@ const CookieConsent = () => {
         setAnalyticsAllowed(true);
         setHotjarAllowed(true);
 
-        // setCookie('analytics-allowed', true, 60);
-        // setCookie('hotjar-allowed', true, 60);
-        // setCookie('cookiebar-closed', true, 60);
-
         Cookies.set('analytics-allowed', 'true', { expires: 60 });
         Cookies.set('hotjar-allowed', 'true', { expires: 60 });
         Cookies.set('cookiebar-allowed', 'true', { expires: 60 });
+
+        setTimeout(() => {
+            setOpen(false);
+        },900);
     }
 
     const denyAll = () => {
         setAnalyticsAllowed(false);
         setHotjarAllowed(false);
- 
-        // setCookie('analytics-allowed', false, 60);
-        // setCookie('hotjar-allowed', false, 60);
-        // setCookie('cookiebar-closed', true, 60);
 
         Cookies.set('analytics-allowed', 'false', { expires: 60 });
         Cookies.set('hotjar-allowed', 'false', { expires: 60 });
         Cookies.set('cookiebar-allowed', 'false', { expires: 60 });
+
+        setTimeout(() => {
+            setOpen(false);
+        },900);
+    }
+
+    const anpassaKakor = () => {
+        setSettingsOpen(true);
     }
   
     return <>
@@ -134,8 +140,10 @@ const CookieConsent = () => {
                     </p>
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
-                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Acceptera alla</button>
-                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Avvisa alla</button>
+
+                    <button onClick={anpassaKakor} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Anpassa</button>
+                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 bg-[#CCF8CF] border-green-cta focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
+                    
                 </div>
             </div>
             
@@ -143,7 +151,7 @@ const CookieConsent = () => {
                 <div className="flex flex-col">
                     <div className="block mt-4 mr-6 w-full tablet:w-1/2">
                         <label className="toggler-wrapper style-3">
-                            <input checked={analyticsAllowed} ref={analyticsRef} onChange={(event) => handleAnalyticsConsent(event)} name="allow-analytics" type="checkbox" />
+                            <input ref={analyticsRef} onChange={(event) => handleAnalyticsConsent(event)} name="allow-analytics" type="checkbox" />
                             <div className="toggler-slider">
                                 <div className="toggler-knob"></div>
                             </div>
@@ -152,7 +160,7 @@ const CookieConsent = () => {
                     </div>
                     <div className="block mt-4 mr-6 w-full tablet:w-1/2">
                         <label className="toggler-wrapper style-3">
-                            <input checked={hotjarAllowed} ref={hotjarRef} onChange={(event) => handleHotjarConsent(event)} name="allow-hotjar" type="checkbox" />
+                            <input ref={hotjarRef} onChange={(event) => handleHotjarConsent(event)} name="allow-hotjar" type="checkbox" />
                             <div className="toggler-slider">
                                 <div className="toggler-knob"></div>
                             </div>
@@ -161,8 +169,10 @@ const CookieConsent = () => {
                     </div>
                 </div>
                 <div className="mt-4 tablet:pl-4 tablet:pr-8">
-                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Acceptera alla</button>
-                    <button onClick={denyAll} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4" type="button">Avvisa alla</button>
+
+                    <button onClick={acceptAll} className="rounded-full border-2 text-sm px-5 mb-2 py-2.5 text-center font-bold btn border-green-cta bg-[#CCF8CF] whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Acceptera alla</button>
+                    <button onClick={() => { setOpen(false) }} className="rounded-full border-2 text-sm px-5 py-2.5 text-center font-bold btn whitespace-nowrap mr-4 focus:bg-green-cta focus:text-white" type="button">Tillåt urval</button>
+                
                 </div>
             </div>
 

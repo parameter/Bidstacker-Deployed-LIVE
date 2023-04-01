@@ -16,7 +16,7 @@ const Blog = ({ blog }) => {
               index !== blog.length -1 ? 'border-b border-gray-300' : ''
             } mr-0 tablet:mr-6 pb-14`}
           >
-            <Link href={item.link ? item.link : item.id}>
+            <Link href={item.link ? item.link : `/artikel/${item.id}`}>
               <h3 className={`mb-4 ${index !== 0 ? 'mt-6' : ''} font-semibold`}>
                 {item.headline}
               </h3>
@@ -33,7 +33,7 @@ const Blog = ({ blog }) => {
                   className="hidden tablet:flex rounded"
                 />
                 <div>
-                  <p className="mb-2">{item.paragraph}</p>
+                  <p className="mb-2">{item.excerp.slice(0,200)}...</p>
                   <p className="font-bold">
                     {item.author} | {item.timeStamp}
                   </p>

@@ -7,7 +7,6 @@ import { useRequestContext } from 'context/request-context';
 import { LoadingDots } from '@/components/LoadingDots';
 
 const Projects = () => {
-  // const [projects, setProjects] = useState();
   const [input, setInput] = useState('Nytt projekt');
   const [editingIndex, setEditingIndex] = useState(null);
   const [deletingIndex, setDeletingIndex] = useState(null);
@@ -35,7 +34,6 @@ const Projects = () => {
 
   const handleAddItem = async () => {
     const projectTitle = 'Nytt projekt';
-    setEditingIndex(myProjects.length);
     setInput(projectTitle);
 
     try {
@@ -47,9 +45,8 @@ const Projects = () => {
       setMyProjects((prevProjects) => {
         return [...prevProjects, res.data.result];
       });
-      console.log('inputRef', inputRef.current);
-
-      handleFocus();
+      setEditingIndex(myProjects.length);
+      handleFocus(editingIndex);
     } catch (error) {
       console.log(error);
     }
@@ -97,12 +94,11 @@ const Projects = () => {
   };
 
   const handleConfirmDelete = () => {
-    if (!deletingIndex) {
+    if (deletingIndex === null) {
       return;
     }
     const projectId = myProjects[deletingIndex]._id;
     setDeletingIndex(null);
-    console.log(true);
 
     try {
       axios
@@ -177,7 +173,7 @@ const Projects = () => {
                       required
                       onKeyDown={(e) => {
                         if (e.key === 'Enter') {
-                          handleEnterButton;
+                          handleEnterButton(e);
                         }
                       }}
                     />
@@ -219,27 +215,28 @@ const Projects = () => {
             ))}
         </ul>
 
-        {deletingIndex !== null && deletingIndex && (
-          <div className="flex flex-col mt-2 px-2 bg-gray-200 rounded-md">
-            <p>{myProjects[deletingIndex].projectTitle}</p>
-            <div className="flex justify-between items-center">
-              <p>
-                <span className="font-bold">Ta bort:</span>
-                &nbsp;Är du säker?
-              </p>
-              <section>
-                <button
-                  type="button"
-                  className="ml-4"
-                  onClick={handleConfirmDelete}
-                >
-                  Ja
-                </button>
-                /<button onClick={() => setDeletingIndex(null)}>Nej</button>
-              </section>
+        {deletingIndex ||
+          (deletingIndex === 0 && (
+            <div className="flex flex-col mt-2 px-2 bg-gray-200 rounded-md">
+              <p>{myProjects[deletingIndex].projectTitle}</p>
+              <div className="flex justify-between items-center">
+                <p>
+                  <span className="font-bold">Ta bort:</span>
+                  &nbsp;Är du säker?
+                </p>
+                <section>
+                  <button
+                    type="button"
+                    className="ml-4"
+                    onClick={handleConfirmDelete}
+                  >
+                    Ja
+                  </button>
+                  /<button onClick={() => setDeletingIndex(null)}>Nej</button>
+                </section>
+              </div>
             </div>
-          </div>
-        )}
+          ))}
       </section>
       <figure className="flex justify-end">
         <Link

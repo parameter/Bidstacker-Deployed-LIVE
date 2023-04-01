@@ -1,10 +1,11 @@
 "use client";
 
 import Script from 'next/script';
+import Cookies from 'js-cookie';
 import { useAppContext } from 'context/app-context';
 
 const InjectedScripts = () => {
-    const { analyticsAllowed } = useAppContext();
+    const { analyticsAllowed, hotjarAllowed } = useAppContext();
 
     const getCookie = (cname) => {
         if (!process.browser) { return };
@@ -23,9 +24,12 @@ const InjectedScripts = () => {
         return "";
     }
 
+    console.log('analyticsAllowed', analyticsAllowed, Cookies.get('analytics-allowed'));
+    console.log('hotjarAllowed', hotjarAllowed, Cookies.get('hotjar-allowed'));
+    
     return (
     <>
-        {true === analyticsAllowed || getCookie('analytics-allowed') === true && 
+        {true === analyticsAllowed || Cookies.get('analytics-allowed') === 'true' && 
             <>
                 {console.log('InjectedScripts', analyticsAllowed)}
                 <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MEASUREMENT_ID}`} strategy='afterInteractive' />
@@ -39,7 +43,25 @@ const InjectedScripts = () => {
                     `}
                 </Script>
             </>
-        }   
+        }
+
+        {true === hotjarAllowed || Cookies.get('hotjar-allowed') === 'true' && 
+
+          <Script id="hotjar_script" strategy='afterInteractive'>
+            {`
+            (function(h,o,t,j,a,r){
+              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+              h._hjSettings={hjid:${process.env.NEXT_PUBLIC_HOTJAR_ID},hjsv:6};
+              a=o.getElementsByTagName('head')[0];
+              r=o.createElement('script');r.async=1;
+              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+              a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+            `}
+          </Script>
+
+        }
+
     </>
     )
 }
