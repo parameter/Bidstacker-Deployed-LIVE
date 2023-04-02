@@ -49,6 +49,10 @@ const steps_content = {
   ]
 }
 
+export async function getServerSideProps({ req, query }) {
+  return { props: {}}
+}
+
 export default function Home() {
 
   console.log('HERE is page from server');
