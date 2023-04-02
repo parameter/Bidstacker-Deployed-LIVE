@@ -5,14 +5,11 @@ import { SupplierProvider } from 'context/supplier-context';
 import '@/styles/globals.css';
 
 export default function PagesApp({ Component, pageProps }) {
-  return (
-    <AppProvider>
-      <RequestProvider>
-        <SupplierProvider>
-          <Nav />
-          <Component {...pageProps} />
-        </SupplierProvider>
-      </RequestProvider>
-    </AppProvider>
-  );
+
+  console.log('This is here 1');
+
+  return (<>
+     <Nav />
+     <Component {...pageProps} />
+  </>);
 }
