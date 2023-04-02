@@ -6,6 +6,12 @@ const LogoDesktop = ({ color, isNavbarOpen }) => {
             second : '#FCFCFC'
         };
     }
+    if (!color) {
+        color = {
+            main: '#FCFCFC',
+            second : '#FCFCFC'
+        };
+    }
     return (<>
     <div className="w-full max-w-[400px]">
         <svg version="1.1" id="Layer_1" x="0px" y="0px"
