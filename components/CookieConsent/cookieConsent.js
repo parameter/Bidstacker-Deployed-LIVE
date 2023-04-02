@@ -38,7 +38,7 @@ const CookieConsent = () => {
         console.log('checking cookies', Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
         analyticsRef.current.checked = (Cookies.get('analytics-allowed') === 'true');
         hotjarRef.current.checked = (Cookies.get('hotjar-allowed') === 'true');
-    },[analyticsRef.current, hotjarRef.current, analyticsAllowed, hotjarAllowed]);
+    },[analyticsAllowed, hotjarAllowed]);
 
     const setCookie = (cname, cvalue, exdays) => {
         const d = new Date();
