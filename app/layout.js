@@ -17,6 +17,7 @@ export default function RootLayout({ children, params }) {
         <InjectedScripts />
       </head>
       <body>
+        <h1>TEST</h1>
         <AppProvider>
           <Nav params={params} />
           <main>{children}</main>
