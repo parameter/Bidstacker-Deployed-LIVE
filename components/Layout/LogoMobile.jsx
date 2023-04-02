@@ -6,6 +6,12 @@ const LogoMobile = ({ color, isNavbarOpen }) => {
             second : '#FCFCFC'
         };
     }
+    if (!color) {
+        color = {
+            mobile: '#FCFCFC',
+            second : '#FCFCFC'
+        };
+    }
     return (<>
     <div className="w-full">
         <svg version="1.1" id="Layer_1" x="0px" y="0px"
