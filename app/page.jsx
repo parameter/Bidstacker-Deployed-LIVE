@@ -49,11 +49,11 @@ const steps_content = {
   ]
 }
 
-export async function getServerSideProps({ req, query }) {
-  return { props: {}}
+export async function generateStaticParams() {
+  return []
 }
 
-export default function Home() {
+export default async function Home() {
 
   console.log('HERE is page from server');
 
