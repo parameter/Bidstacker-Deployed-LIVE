@@ -7,7 +7,6 @@ import FacebookIcon from '../../../public/assets/svg/FacebookIcon';
 import LinkedinIcon from '../../../public/assets/svg/LinkedinIcon';
 import InstagramIcon from '../../../public/assets/svg/InstagramIcon';
 import TwittedIcon from '../../../public/assets/svg/TwittedIcon';
-import { useCurrentUser } from '@/lib/user';
 import { usePathname } from 'next/navigation';
 import general_settings from '@/content-json/general-settings-json';
 
@@ -45,7 +44,6 @@ const menyArray = {
 const MenuOverlay = ({ isNavbarOpen }) => {
   const pathname = usePathname();
   const { lockScroll, unlockScroll } = useScrollLock();
-  const { data: { user } = {} } = useCurrentUser();
  
   useEffect(() => {
     if (isNavbarOpen) {
@@ -54,8 +52,6 @@ const MenuOverlay = ({ isNavbarOpen }) => {
       unlockScroll();
     }
   }, [isNavbarOpen, lockScroll, unlockScroll]);
-
-  console.log('isNavbarOpen',isNavbarOpen);
  
   return (
     <nav

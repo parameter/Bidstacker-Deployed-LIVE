@@ -7,10 +7,8 @@ import Link from 'next/link';
 import useMediaQuery from '@/lib/start-page-hooks/useMediaQuery';
 import MenuOverlay from '@/components/StartPage/navbar/MenuOverlay';
 import Switcher from '@/components/StartPage/navbar/Switcher';
-import UserMenu from '@/components/Layout/UserMenu';
 import LogoDesktop from '@/components/Layout/LogoDesktop';
 import LogoMobile from '@/components/Layout/LogoMobile';
-import { useCurrentUser } from '@/lib/user';
 import { useAppContext } from 'context/app-context';
 import { usePathname, useSearchParams } from 'next/navigation';
 import MobileFooter from './MobileFooter';
@@ -32,7 +30,6 @@ const mainMenuItems = [
 
 const Navbar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const { data: { user } = {}, mutate } = useCurrentUser();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const mainNavRef = useRef();
