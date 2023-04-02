@@ -9,7 +9,7 @@ export default function PagesApp({ Component, pageProps }) {
   console.log('This is here 1');
 
   return (<>
-     <Nav />
+     {/* <Nav /> */}
      <Component {...pageProps} />
   </>);
 }
