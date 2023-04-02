@@ -37,6 +37,8 @@ const Navbar = () => {
   const [scrollbarWidth, setScrollbarWidth] = useState(null);
   const { scrolledDown, navDownBg, logoColor, isSticky, navbarHeight, setNavbarHeight, radioButtonsTextColorUp, radioButtonsTextColorDown } = useAppContext();
 
+  console.log('logoColor 1',logoColor);
+
   useEffect(() => {
 
     setTimeout(() => {

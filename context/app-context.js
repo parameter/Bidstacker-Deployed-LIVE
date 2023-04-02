@@ -44,6 +44,9 @@ export const AppProvider = ({ children }) => {
   }, [navbarHeight]);
 
   const switchBrandingScheme = (pathname) => {
+
+    console.log('setting logoColor', pathname);
+
     switch (pathname) {
 
       case '/': 
