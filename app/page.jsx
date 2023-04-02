@@ -1,3 +1,5 @@
+import "server-only";
+
 import Hero from '../components/StartPage/Hero';
 import Link from 'next/link';
 import Newsletter from '../components/StartPage/shared/Newsletter';
