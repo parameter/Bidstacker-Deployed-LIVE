@@ -1,7 +1,7 @@
 import ServerPageWrapper from '@/components/Layout/ServerPageWrapper';
 import Hero from '../components/StartPage/Hero';
 import Link from 'next/link';
-import Newsletter from '../components/StartPage/shared/Newsletter';
+// import Newsletter from '../components/StartPage/shared/Newsletter';
 import BuyerStepGuideDesktop from '../components/StartPage/buyer/BuyerStepGuideDesktop';
 import BuyerStepGuideMobile from '../components/StartPage/buyer/BuyerStepGuideMobile';
 import WhyUsShared from '../components/StartPage/shared/WhyUs';
@@ -157,9 +157,7 @@ export default async function Home() {
         <BuyerStepGuideDesktop steps={steps_content} />
       </div>
       
-      <ServerPageWrapper>
-        <Newsletter source="/assets/video/construction.mp4" />
-      </ServerPageWrapper>
+
       
     </>
   );
