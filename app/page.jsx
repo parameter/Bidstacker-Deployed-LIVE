@@ -1,3 +1,4 @@
+import ServerPageWrapper from '@/components/Layout/ServerPageWrapper';
 import Hero from '../components/StartPage/Hero';
 import Link from 'next/link';
 import Newsletter from '../components/StartPage/shared/Newsletter';
@@ -49,21 +50,17 @@ const steps_content = {
   ]
 }
 
-export async function generateStaticParams() {
-  return []
-}
-
 export default async function Home() {
-
-  console.log('HERE is page from server');
 
   return (
     <>
+
       <Hero
         fontColor={'orange'}
         heading=""
         subheading="Inköpstjänsten som länkar byggföretag med kvalitetssäkrade återförsäljare och åkerier"
       >
+
         <div className="absolute left-0 top-0 w-full h-full bg-[rgba(75,61,48,0.93)] z-10"></div>
 
         <video
@@ -74,6 +71,7 @@ export default async function Home() {
           loop
           muted
         />
+
       </Hero>
 
       <div className="flex flex-col justify-center">
@@ -158,7 +156,11 @@ export default async function Home() {
       <div className="hidden desktop:block">
         <BuyerStepGuideDesktop steps={steps_content} />
       </div>
-      <Newsletter source="/assets/video/construction.mp4" />
+      
+      <ServerPageWrapper>
+        <Newsletter source="/assets/video/construction.mp4" />
+      </ServerPageWrapper>
+      
     </>
   );
 }

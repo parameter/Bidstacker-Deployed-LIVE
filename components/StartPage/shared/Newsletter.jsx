@@ -15,7 +15,7 @@ const Newsletter = ({ source }) => {
 
     const onScroll = () => {
       if (elementOffsetTop === false || elementHeight === false || activeHref !== null) { return; }
-      if (window.scrollY >= (elementOffsetTop - elementHeight)) {
+      if (window.scrollY >= (elementOffsetTop - (elementHeight +100))) {
         setActiveHref(source);
       }
     }
