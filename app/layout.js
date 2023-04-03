@@ -7,6 +7,7 @@ import HeadComp from '@/components/Layout/Head';
 import Footer from '@/components/Layout/Footer';
 import CookieConsent from '@/components/CookieConsent/cookieConsent';
 import InjectedScripts from '@/components/CookieConsent/injectedScripts';
+import ServerPageWrapper from '@/components/Layout/ServerPageWrapper';
 
 export default function RootLayout({ children, params }) {
 
@@ -14,11 +15,15 @@ export default function RootLayout({ children, params }) {
     <html lang="en">
       <head>
         <HeadComp />
-        <InjectedScripts />
+        <ServerPageWrapper>
+          <InjectedScripts />
+        </ServerPageWrapper>
       </head>
       <body>
         <AppProvider>
-          <Nav params={params} />
+          <ServerPageWrapper>
+            <Nav params={params} />
+          </ServerPageWrapper>
           <main>{children}</main>
           <Footer>
             <CookieConsent />

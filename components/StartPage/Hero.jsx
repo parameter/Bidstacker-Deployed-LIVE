@@ -3,7 +3,7 @@ import Image from 'next/image';
 import AnimatedWords from '@/components/StartPage/AnimatedWords';
 
 const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
-
+ 
   return (<>
     <div className='overflow-hidden relative h-[calc(100vh-60px)] mobile:h-[calc(100vh-60px)] tablet:h-full desktop:h-full mobile:flex-col flex flex-row justify-center'>
       <div className="relative flex flex-col tablet:flex-row mobile:pt-20 h-[100vh] justify-end items-center z-20">
