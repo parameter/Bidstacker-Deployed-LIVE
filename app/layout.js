@@ -9,6 +9,7 @@ import CookieConsent from '@/components/CookieConsent/cookieConsent';
 import InjectedScripts from '@/components/CookieConsent/injectedScripts';
 import ServerPageWrapper from '@/components/Layout/ServerPageWrapper';
 
+
 export default function RootLayout({ children, params }) {
 
   return (
