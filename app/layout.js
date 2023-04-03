@@ -26,7 +26,9 @@ export default function RootLayout({ children, params }) {
           </ServerPageWrapper>
           <main>{children}</main>
           <Footer>
-            <CookieConsent />
+            <ServerPageWrapper>
+               <CookieConsent />
+            </ServerPageWrapper>
           </Footer>
         </AppProvider>
       </body>
