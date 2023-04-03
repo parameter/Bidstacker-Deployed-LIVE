@@ -74,8 +74,7 @@ handler.post(
         resultStatusArray.push('mailchimp subscribed FAILED');
     }
 
-    // send email 
-    transporter.sendMail({
+    const customerEmail = {
         from: 'info@bidstacker.se',
         to: email,
         subject: `Vi har tagit emot er ansökan`,
@@ -93,18 +92,30 @@ handler.post(
             ],
             signoff: 'Vänliga hälsningar, teamet på Bidstacker',
             assets_domain: 'https://bidstacker.vercel.app'
-        }) 
-    
-    }, (error, response) => {
+        })
+    }
 
-        if (!error) {
-            resultStatusArray.push('bidstacker mail success');
-        } else {
-            resultStatusArray.push(error);
-        }
+    const bidstackerCrewNotification = {
+        from: 'info@bidstacker.se',
+        to: 'info@bidstacker.se',
+        subject: `Det har kommit in en ansökan`,
+        text: `En person vid namn "${contactName}" har anmält sig.\r\nEmail: "${email}"\r\nFöretag: "${businessName}"\r\nTelefon: "${contactNumber}"`
+    }
 
+    Promise.all([
+        transporter.sendMail(customerEmail),
+        transporter.sendMail(bidstackerCrewNotification)
+    ])
+    .then((res) => {
+
+        resultStatusArray.push('bidstacker mail success');
         res.status(200).json({ result: resultStatusArray });
- 
+
+    }).catch((err) => {
+        
+        resultStatusArray.push(err);
+        res.status(200).json({ result: resultStatusArray });
+        
     });
       
 });
