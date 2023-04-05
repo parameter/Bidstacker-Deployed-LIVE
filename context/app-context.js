@@ -18,12 +18,11 @@ export const AppProvider = ({ children }) => {
   const [radioButtonsTextColorUp, setRadioButtonsTextColorUp] = useState(undefined);
   const [radioButtonsTextColorDown, setRadioButtonsTextColorDown] = useState(undefined);
   const [isSticky, setIsSticky] = useState(false);
-  const [navbarHeight, setNavbarHeight] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       // sticky
-      if (window.scrollY >= navbarHeight) {
+      if (window.scrollY >= 82) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -41,7 +40,7 @@ export const AppProvider = ({ children }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [navbarHeight]);
+  }, []);
 
   const switchBrandingScheme = (pathname) => {
 
@@ -147,9 +146,7 @@ export const AppProvider = ({ children }) => {
         setAnalyticsAllowed,
         hotjarAllowed,
         setHotjarAllowed,
-        isSticky,
-        navbarHeight,
-        setNavbarHeight,
+        isSticky
       }}
     >
       {children}

@@ -111,13 +111,11 @@ const Navbar = ({ params }) => {
               <li key={i}>
                 <Link
                   href={item.path} 
-                  /*
                   className={`nav-item  text-center mobile:text-lg tablet:text-xl rounded-[5px] cursor-pointer z-[2] item-${i} ${
-                    item.path === window.location
+                    item.path === pathname
                       ? 'active text-black dark:text-white font-bold'
                       : ' font-normal'
-                  }`} 
-                  */
+                  }`}
                 >
                   <button>{item.text}</button>
                 </Link>
