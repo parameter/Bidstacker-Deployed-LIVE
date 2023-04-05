@@ -53,7 +53,7 @@ const Hero = ({ hero }) => {
     <div className={`bg-[url('/assets/img/bg-buyer.webp')] bg-cover bg-fixed`}>
       <div
         style={{ backgroundColor: hero.bg }}
-        className="relative dark:bg-gray-dark w-full pt-[180px] tablet:pt-[120px] pb-[100px] px-8 flex flex-col justify-items-center"
+        className="relative dark:bg-gray-dark w-full pt-40 tablet:pt-40 pb-40 px-8 flex flex-col justify-items-center"
       >
         <div className="container relative mx-auto">
           <h1
@@ -68,17 +68,17 @@ const Hero = ({ hero }) => {
           <h3
             className={
               hero.textColor
-                ? 'text-lg tablet:text-2xl text-start mb-[50px] px-0 tablet:px-10 mt-4 text-' +
+                ? 'text-lg tablet:text-2xl text-start mb-16 px-0 tablet:px-10 mt-4 text-' +
                   hero.textColor
-                : 'text-lg tablet:text-2xl text-start mb-[50px] px-0 tablet:px-10 mt-4'
+                : 'text-lg tablet:text-2xl text-start mb-16 px-0 tablet:px-10 mt-4'
             }
           >
             {hero.subTitle}
           </h3>
         </div>
-        <div className="flex flex-col desktop:flex-row justify-center items-center ml-6 gap-6">
+        <div className="flex flex-col desktop:flex-row justify-center items-center ml-6 gap-10">
           <div className="order-last desktop:order-first w-full max-w-[600px]">
-            <div className="relative max-w-[600px] mx-auto bg-white dark:bg-gray-light-dark rounded-xl mb-[80px]">
+            <div className="relative max-w-[600px] mx-auto bg-white dark:bg-gray-light-dark rounded-xl">
               <div style={{display: (sending ? 'block' : 'none')}} className="animated_barberpole"></div>
               <h3 className="px-6 py-10 font-bold">Ansök om konto</h3>
               <form onSubmit={handleSubmit}>

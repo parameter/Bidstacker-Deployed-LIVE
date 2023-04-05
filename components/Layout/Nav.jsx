@@ -4,7 +4,6 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import RadioButtonsMenu from '@/components/StartPage/navbar/RadioButtonsMenu';
 import Link from 'next/link';
 import MenuOverlay from '@/components/StartPage/navbar/MenuOverlay';
-import Switcher from '@/components/StartPage/navbar/Switcher';
 import UserMenu from '@/components/Layout/UserMenu';
 import LogoDesktop from '@/components/Layout/LogoDesktop';
 import LogoMobile from '@/components/Layout/LogoMobile';
@@ -68,7 +67,6 @@ const Navbar = ({ params }) => {
               <LogoDesktop color={logoColor} isNavbarOpen={isNavbarOpen} />
             </div>
           </Link>
-          {/* <Switcher /> */}
         </div>
         <div className={`hidden tablet:flex transition-opacity duration-500 ${!isNavbarOpen ? 'tablet:opacity-100 delay-300' : 'opacity-0'}`}>
           <RadioButtonsMenu
