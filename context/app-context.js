@@ -45,8 +45,6 @@ export const AppProvider = ({ children }) => {
 
   const switchBrandingScheme = (pathname) => {
 
-    console.log('setting logoColor', pathname);
-
     switch (pathname) {
 
       case '/': 
@@ -136,6 +134,7 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        pathname,
         notices,
         newNotice,
         removeNote,
