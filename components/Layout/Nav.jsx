@@ -119,7 +119,7 @@ const Navbar = ({ params }) => {
                   }`} 
                   */
                 >
-                  <button>{item.text}xxx</button>
+                  <button>{item.text}</button>
                 </Link>
               </li>
             );
