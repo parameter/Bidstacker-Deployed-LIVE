@@ -80,16 +80,6 @@ const Navbar = ({ params }) => {
         <div className={` flex items-center gap-8`}>
 
           <div className="absolute right-0 flex flex-row items-center gap-2">
-            {!user ? (
-              <Link
-                href="/login"
-                className="hidden tablet:inline font-bold text-lg hover:underline text-white"
-              >
-                Logga in
-              </Link>
-            ) : (
-              <UserMenu />
-            )}
 
             <div className="mx-6">
               <Hamburger
