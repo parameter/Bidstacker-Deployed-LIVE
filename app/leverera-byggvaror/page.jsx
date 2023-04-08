@@ -41,9 +41,9 @@ export default function Delivery({ params }) {
 
   const whyUs = {
     title: 'Varför åkerier älskar Bidstacker',
-    subTitle: <p className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
+    subTitle: <h1 className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
       Åkerier kan öka sin lönsamhet genom att utföra leveranser i sitt närområde, eller längs med befintliga körsträckor. Transportfirmor kan minimera sin klimatinverkan genom att i mindre utsträckning köra med halvfulla lastutrymmen. Fyll upp lastutrymmet det är både lönsamt, effektivt och klimatsmart!
-      </p>,
+      </h1>,
     features: [
       {
         icon: (

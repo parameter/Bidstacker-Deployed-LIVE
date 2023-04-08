@@ -38,11 +38,11 @@ export default function Requestor() {
   };
 
   const whyUs = {
-    title: 'Varför återförsäljare älskar Bidstacker',
+    title: 'Ge säljarna rätt förutsättningar att lyckas med fler affärer',
     subTitle:
-    <p className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
-      Ge säljarna rätt förutsättningar att lyckas med fler affärer. Hitta nya kunder och skapa nya affärsmöjligheter genom att distribuera varor till ett större upptagningsområde, vi löser logistiken och säkrar dessutom betalningen!
-    </p>,
+    <h1 className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
+      Hitta nya kunder och skapa nya affärsmöjligheter genom att distribuera varor till ett större upptagningsområde, vi löser logistiken och säkrar dessutom betalningen!
+    </h1>,
     features: [
       {
         icon: (

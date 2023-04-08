@@ -37,14 +37,11 @@ export default function Requestor() {
   };
   
   const whyUs = {
-    title: 'Varför byggföretagen använder Bidstacker',
+    title: 'Hitta byggmaterialet oavsett var ni befinner er',
     subTitle: (
-      <p className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
-        Hitta byggmaterialet oavsett var ni befinner er, hantverkarna slipper
-        pendla mellan brädgårdarna. Hitta rätt material i rätt tid, till rätt
-        pris. Vi hjälper entreprenörer att undvika byggavbrott och dyra
-        inköpskostnader, helst gratis.
-      </p>
+      <h1 className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
+        Hantverkarna slipper pendla mellan brädgårdarna. Hitta rätt material i rätt tid, till rätt pris. Vi hjälper entreprenörer att undvika byggavbrott och dyra inköpskostnader, helst gratis.
+      </h1>
     ),
     features: [
       {
