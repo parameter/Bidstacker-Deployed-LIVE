@@ -39,7 +39,7 @@ export default function Requestor() {
   const whyUs = {
     title: 'Hitta byggmaterialet oavsett var ni befinner er',
     subTitle: (
-      <h1 className="text-start tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
+      <h1 className="text-start font-normal tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
         Hantverkarna slipper pendla mellan brädgårdarna. Hitta rätt material i rätt tid, till rätt pris. Vi hjälper entreprenörer att undvika byggavbrott och dyra inköpskostnader, helst gratis.
       </h1>
     ),
