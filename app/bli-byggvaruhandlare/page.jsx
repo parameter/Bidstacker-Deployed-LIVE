@@ -40,7 +40,7 @@ export default function Requestor() {
   const whyUs = {
     title: 'Ge säljarna rätt förutsättningar att lyckas med fler affärer',
     subTitle:
-    <h1 className="text-start font-normal tablet:text-center text-xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
+    <h1 className="text-start font-normal tablet:text-center text-xl tablet:text-2xl text-gray-light-dark dark:text-gray-200 mb-8 tablet:mb-8">
       Hitta nya kunder och skapa nya affärsmöjligheter genom att distribuera varor till ett större upptagningsområde, vi löser logistiken och säkrar dessutom betalningen!
     </h1>,
     features: [
