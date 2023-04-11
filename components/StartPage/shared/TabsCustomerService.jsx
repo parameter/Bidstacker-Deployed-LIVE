@@ -54,10 +54,6 @@ const TabsCustomerService = () => {
   // FAQ QUESTIONS FOR BUYERS
   const questionsBuyer = [
     {
-      question: 'Hur kan Åkerier dra nytta av Bidstacker?',
-      answer: 'Vi hjälper åkerier att undvika att köra med halvfulla lastutrymmen, genom att erbjuda leveransuppdrag av byggmaterial. Låt chauffören eller ledningspersonalen få notifieringar om intressanta närliggande leveransuppdrag direkt i mejlen!'
-    },
-    {
       question: 'Hur ofta får jag begära in offerter?',
       answer: 'Du kan skapa ett flertal förfrågningar – det finns med andra ord ingen gräns för antalet förfrågningar som du kan publicera.',
     },
@@ -101,6 +97,10 @@ const TabsCustomerService = () => {
 
   //   FAQ QUESTIONS FOR DELIVERY
   const questionsDelivery = [
+    {
+      question: 'Hur kan Åkerier dra nytta av Bidstacker?',
+      answer: 'Vi hjälper åkerier att undvika att köra med halvfulla lastutrymmen, genom att erbjuda leveransuppdrag av byggmaterial. Låt chauffören eller ledningspersonalen få notifieringar om intressanta närliggande leveransuppdrag direkt i mejlen!'
+    },
     {
       question: 'Vilka arbetstider kan man förvänta sig hos er?',
       answer: 'Du är din egna chef – och bestämmer vilka dagar och tider som du arbetar. Leverera så mycket, och så ofta du vill, din lön baseras delvis på antalet utförda leveranser.',

@@ -35,21 +35,21 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
           <div className='block tablet:flex flex-wrap gap-3 tablet:gap-5 px-6'>
             <Link href='/hitta-byggvaror'>
               <button
-                className={`rounded-lg w-full text-lg px-8 py-4 mb-6 font-semibold text-center bg-yellow rounded-3xl font-bold`}
+                className={`rounded-lg w-full text-lg px-8 py-3 tablet:py-4 mb-6 font-semibold text-center bg-yellow rounded-3xl font-bold`}
               >
                 JÄMFÖR OFFERTER
               </button>
             </Link>
             <Link href='/bli-byggvaruhandlare'>
               <button
-                className={`rounded-lg w-full bg-[#425861] text-white font-semibold text-lg px-8 rounded-3xl py-4 mb-6 text-center`}
+                className={`rounded-lg w-full bg-[#425861] text-white font-semibold text-lg px-8 py-3 tablet:py-4 rounded-3xl mb-6 text-center`}
               >
                 SÄLJ BYGGMATERIAL
               </button>
             </Link>
             <Link href='/leverera-byggvaror'>
               <button
-                className={`rounded-lg w-full bg-[#76A37A] text-lg font-semibold px-8 py-4 mb-6 rounded-3xl text-center`}
+                className={`rounded-lg w-full bg-[#76A37A] text-lg font-semibold px-8 py-3 tablet:py-4 mb-6 rounded-3xl text-center`}
               >
                 LEVERERA BYGGVAROR
               </button>
