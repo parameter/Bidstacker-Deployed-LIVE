@@ -6,7 +6,7 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
  
   return (<>
     <div className='overflow-hidden relative h-auto mobile:h-[calc(100vh-60px)] tablet:h-full desktop:h-full mobile:flex-col flex flex-row justify-center'>
-      <div className="relative flex flex-col tablet:flex-row pt-20 mobile:pt-20 h-[100vh] tablet:justify-end items-center z-20">
+      <div className="relative flex flex-col tablet:flex-row pt-20 mobile:pt-20 h-auto desktop:h-[100vh] tablet:justify-end items-center z-20">
         <div className='relative pb-8 px-0 mobile:px-5 mb-12 mobile:mb-12 tablet:mb-0 tablet:min-h-[600px] block tablet:flex flex-col justify-end w-full  z-20 '>
 
           <Image 
