@@ -33,7 +33,7 @@ const Navbar = ({ params }) => {
   const mainNavRef = useRef();
   const mobileMenuRef = useRef();
   const [scrollbarWidth, setScrollbarWidth] = useState(null);
-  const { scrolledDown, navDownBg, logoColor, isSticky, radioButtonsTextColorUp, radioButtonsTextColorDown, pathname } = useAppContext();
+  const { scrolledDown, navDownBg, logoColor, isSticky, isMobile, radioButtonsTextColorUp, radioButtonsTextColorDown, pathname } = useAppContext();
 
   useEffect(() => {
 
@@ -50,9 +50,9 @@ const Navbar = ({ params }) => {
     <div 
       ref={mainNavRef}
       style={{
-        backgroundColor: scrolledDown && !isNavbarOpen ? navDownBg : 'transparent',
+        backgroundColor: scrolledDown && !isNavbarOpen ? navDownBg : '',
       }}
-      className={`transition-colors w-full absolute tablet:fixed top-0 right-0 py-2 z-40 ${
+      className={`bg-yellow desktop:bg-transparent transition-colors w-full absolute tablet:fixed top-0 right-0 py-2 z-40 ${
         scrolledDown &&
         `tablet:shadow-sm tablet:ease-in z-40`
       } ${isNavbarOpen && '!shadow-none'}`}
@@ -87,7 +87,7 @@ const Navbar = ({ params }) => {
                 duration={0.8}
                 toggled={isNavbarOpen}
                 toggle={setIsNavbarOpen}
-                color={isNavbarOpen ? '#FFFFFF' : radioButtonsTextColorUp}
+                color={isMobile ? '#282623' : (isNavbarOpen ? '#FFFFFF' : radioButtonsTextColorUp)}
                 className="text-black dark:text-white"
               />
             </div>
@@ -101,7 +101,7 @@ const Navbar = ({ params }) => {
         ref={mobileMenuRef}
         className={`${
           isNavbarOpen ? 'hidden' : 'block'
-        } absolute tablet:hidden desktop:hidden bg-white/20 dark:bg-gray-light-dark top-full py-4 px-10 overflow-hidden z-[9999] w-full ${
+        } absolute tablet:hidden desktop:hidden bg-[#795e28] top-full py-4 px-10 overflow-hidden z-[9999] w-full ${
           isSticky ? 'sticky  shadow-sm !bg-white ease-in' : `absolute`
         }`}
       >
@@ -111,13 +111,13 @@ const Navbar = ({ params }) => {
               <li key={i}>
                 <Link
                   href={item.path} 
-                  className={`nav-item  text-center mobile:text-lg tablet:text-xl rounded-[5px] cursor-pointer z-[2] item-${i} ${
+                  className={`nav-item text-white text-center text-base tablet:text-xl rounded-[5px] cursor-pointer z-[2] item-${i} ${
                     item.path === pathname
                       ? 'active text-black dark:text-white font-bold'
                       : ' font-normal'
                   }`}
                 >
-                  <button>{item.text}</button>
+                  <button className="uppercase font-medium">{item.text}</button>
                 </Link>
               </li>
             );

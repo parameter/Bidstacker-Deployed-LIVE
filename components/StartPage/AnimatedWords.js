@@ -4,10 +4,9 @@ import { useState, useRef, useEffect } from 'react';
 const AnimatedWords = ({ fontColor }) => {
     const [animatedWordText_one, setAnimatedWordText_one] = useState('');
     const [animatedWordText_two, setAnimatedWordText_two] = useState('');
-  
+    const [animationStarted, setAnimationStarted] = useState(false);
     const animatedWord_one = useRef();
     const animatedWord_two = useRef();
-    const [animationStarted, setAnimationStarted] = useState(false);
   
     useEffect(() => {
        
@@ -21,9 +20,9 @@ const AnimatedWords = ({ fontColor }) => {
       };
       
       const texts = [
-          "LÖNSAM",
-          "EFFEKTIV",
-          "HÅLLBAR"
+        "LÖNSAM",
+        "EFFEKTIV",
+        "HÅLLBAR"
       ];
       
       const morphTime = 1;
@@ -96,16 +95,14 @@ const AnimatedWords = ({ fontColor }) => {
       
       animate();
   
-    
+      return () => {
+        window.cancelAnimationFrame(animationFrameHandle)
+      }
   
-    return () => {
-      window.cancelAnimationFrame(animationFrameHandle)
-    }
-  
-  },[animatedWord_one, animatedWord_two])
+    },[animatedWord_one, animatedWord_two])
   
     return (<>
-      <div className={fontColor ? 'mb-2 text-orange headline-shadow pl-6 flex flex-row flex-wrap text-3xl font-bold tablet:text-5xl desktop:text-7xl' : 'text-3xl font-bold tablet:text-5xl desktop:text-7xl headline-shadow mb-2 pl-6 flex flex-row flex-wrap'}>
+      <div className={'w-full tablet:w-auto mb-2 text-orange headline-shadow pl-6 flex flex-row flex-wrap font-bold max-[500px]:text-4xl text-5xl mobile:text-6xl tablet:text-6xl desktop:text-7xl'}>
         EN&nbsp;
         
         <span className="animated_morphing_words_container text-[#76A37A]">

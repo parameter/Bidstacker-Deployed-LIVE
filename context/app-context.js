@@ -18,8 +18,21 @@ export const AppProvider = ({ children }) => {
   const [radioButtonsTextColorUp, setRadioButtonsTextColorUp] = useState(undefined);
   const [radioButtonsTextColorDown, setRadioButtonsTextColorDown] = useState(undefined);
   const [isSticky, setIsSticky] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+
+    // resize window 
+    const handleResize = () => {
+      // sticky
+      if (document.body.clientWidth < 1200) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    };
+
+    // scroll 
     const handleScroll = () => {
       // sticky
       if (window.scrollY >= 82) {
@@ -27,7 +40,6 @@ export const AppProvider = ({ children }) => {
       } else {
         setIsSticky(false);
       }
-
       // scrolled down
       if (window.scrollY > 0) {
         setScrolledDown(true);
@@ -37,8 +49,10 @@ export const AppProvider = ({ children }) => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -146,7 +160,8 @@ export const AppProvider = ({ children }) => {
         setAnalyticsAllowed,
         hotjarAllowed,
         setHotjarAllowed,
-        isSticky
+        isSticky,
+        isMobile
       }}
     >
       {children}

@@ -11,9 +11,10 @@ const TabsCustomerService = () => {
 
   // INFO TEXT FOR BUYERS
   const infoBuyer = {
-    user: 'Inköpare',
-    text: 'Det är inte alltid enkelt att sköta inköpen på egen hand! Har ni frågor kring tjänsten, kring hur man skapar en förfrågan eller ert konto överlag? Vår kundtjänst finns här för att besvara samtliga av era frågor, om inte finner svaret i vår FAQ, som ni hittar nedan.',
+    user: 'Är ni inköpare?',
+    text: 'Det är inte alltid enkelt att sköta inköpen på egen hand! Har ni frågor rörande användningen av vår tjänst eller kring inköp av byggmaterial? Kontakta vår kundtjänst eller sök svaren i vår FAQ nedtill.',
     helpText: [
+      'Upprätta konto',
       'Hjälp med att skapa en förfrågan',
       'Få hjälp att hitta byggvaror',
       'Produktfrågor om byggvaror',
@@ -21,11 +22,13 @@ const TabsCustomerService = () => {
       'Teknisk support',
     ],
   };
+
   // INFO TEXT FOR RESELLER
   const infoReseller = {
-    user: 'Återförsäljare',
-    text: 'Vi vill att ni som återförsäljare skall kunna få ut det mesta av tjänsten. Har ni frågor kring eventuella funktioner, kring hur man svarar på en förfrågan eller ert konto överlag, kan ni därför antingen läsa vår FAQ nedtill, eller kontakta vår kundtjänst!',
+    user: 'Är ni byggvaruhandlare?',
+    text: 'Har ni funderingar kring användningen av vår tjänst eller hur vi kan hjälpa er att öka er försäljning av byggvaror? Kontakta vår kundtjänst, eller sök svaren i vår FAQ nedtill!',
     helpText: [
+      'Upprätta konto',
       'Hanteringar av återförsäljarkontot/avtal',
       'Lämna offerter på förfrågningar',
       'Funktionalitet och användning av tjänsten',
@@ -36,9 +39,10 @@ const TabsCustomerService = () => {
 
   // INFO TEXT FOR DELIVERY
   const infoDelivery = {
-    user: 'Åkare',
-    text: 'Att leverera varor med oss är smidigt och enkelt, men vi förstår att det ändå kan dyka upp frågor. Har ni frågor kring tjänsten, kring hur man levererar varor eller ert konto rent genrellt? Vår kundtjänst finns här för att besvara samtliga av era frågor, när inte svaret finns bland våra vanliga frågor nedan',
+    user: 'Är ni åkare?',
+    text: 'Vår kundtjänst hjälper er med att få svar på era frågor samt att komma igång med, eller optimera användningen av vår tjänst. Ni hittar även våra vanligaste frågor nedtill!',
     helpText: [
+      'Upprätta konto',
       'Tjänstens funktioner',
       'Användarvillkor',
       'Klagomål',
@@ -47,8 +51,12 @@ const TabsCustomerService = () => {
     ],
   };
 
-  //   FAQ QUESTIONS FOR BUYERS
+  // FAQ QUESTIONS FOR BUYERS
   const questionsBuyer = [
+    {
+      question: 'Hur kan Åkerier dra nytta av Bidstacker?',
+      answer: 'Vi hjälper åkerier att undvika att köra med halvfulla lastutrymmen, genom att erbjuda leveransuppdrag av byggmaterial. Låt chauffören eller ledningspersonalen få notifieringar om intressanta närliggande leveransuppdrag direkt i mejlen!'
+    },
     {
       question: 'Hur ofta får jag begära in offerter?',
       answer: 'Du kan skapa ett flertal förfrågningar – det finns med andra ord ingen gräns för antalet förfrågningar som du kan publicera.',
@@ -59,12 +67,24 @@ const TabsCustomerService = () => {
     },
     {
       question: 'Är det möjligt att addera fler användare till vårat konto?',
-      answer: 'Det är möjligt att utan kostnad addera upp till 2 användare per inköpskonto, därefter tillkommer en kostnad om 199/sek per användare/ per månad.',
+      answer: 'Det är möjligt att utan kostnad addera upp till 2 användare per inköpskonto.',
     },
+    {
+      question: 'Hur kan byggföretag använda Bidstackers tjänst?',
+      answer: 'Byggföretagen kan använda Bidstacker för att inhämta flera offerter på byggvaror. Offerterna förmedlas därefter till rätt typer av återförsäljare som i sin tur då inkommer med ett erbjudande. Det lämnar köparen med bättre villkor och kortare ledtider.'
+    },
+    {
+      question: 'Kan vi få hjälp med leveranser?',
+      answer: 'Vi vill underlätta hela inköpsprocessen, vilket också inbegriper logistiken. Det gör vi genom att para rätt leverans med rätt åkeri. Ta kontakt med vår kundtjänst för mer information.'
+    }
   ];
 
   //   FAQ QUESTIONS FOR SELLERS
   const questionsReseller = [
+    {
+      question: 'Hur kan Bidstacker hjälpa byggvaruhandlare?',
+      answer: 'Bidstacker är en bred tjänst som bland annat tillåter byggvaruhandlare att erbjuda bättre logistiklösningar, bli av med överskottspartier och upprätta nya affärer genom att besvarar offerter från nya kunder!'
+    },
     {
       question: 'Hur går det till att sälja varor via Bidstacker?',
       answer: 'Återförsäljare som önskar ansluta sig till Bidstacker ska bedriva sin verksamhet i Sverige, och/eller inom EU/EES. Vidare krav framgår vid ansökan, ni är även välkomna att kontakta vår kundtjänst för ytterligare information.',
@@ -76,7 +96,7 @@ const TabsCustomerService = () => {
     {
       question: 'Hur lång tid tar det innan vi får pengar utbetalda för sålda varor?',
       answer: 'Det tar i regel 2-3 arbetsdagar innan betalningen bokförs på erat konto, oavsett om kunden valt fakturabetalning eller kortbetalning. Skulle det uppstå några problem under utbetalningen så ber vi er snarast att ta kontakt med vår avdelning för fakturor ekonomi@bidstacker.se',
-    },
+    }
   ];
 
   //   FAQ QUESTIONS FOR DELIVERY

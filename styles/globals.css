@@ -143,14 +143,19 @@ input:-webkit-autofill:focus {
   text-align: center;
   width: 320px;
 }
-@media (max-width: 1260px) {
+@media (max-width: 1280px) {
   .animated_morphing_words_container {
-    width: 220px;
+    width: 270px;
   }
 }
 @media (max-width: 960px) {
   .animated_morphing_words_container {
-    width: 136px;
+    width: 216px;
+  }
+}
+@media (max-width: 500px) {
+  .animated_morphing_words_container {
+    width: 174px;
   }
 }
 .animated_morphing_words_container span {

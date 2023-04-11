@@ -1,6 +1,6 @@
 const LogoMobile = ({ color, isNavbarOpen }) => {
+    /*
     if (isNavbarOpen) {
-        console.log('Yes its open');
         color = {
             mobile: '#FCFCFC',
             second : '#FCFCFC'
@@ -8,10 +8,15 @@ const LogoMobile = ({ color, isNavbarOpen }) => {
     }
     if (!color) {
         color = {
-            mobile: '#FCFCFC',
-            second : '#FCFCFC'
+            mobile: '#282623',
+            second : '#282623'
         };
     }
+    */
+    color = {
+        mobile: '#282623',
+        second : '#282623'
+    };
     return (<>
     <div className="w-full">
         <svg version="1.1" id="Layer_1" x="0px" y="0px"
