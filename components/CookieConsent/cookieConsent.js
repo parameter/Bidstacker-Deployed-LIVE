@@ -184,7 +184,7 @@ const CookieConsent = () => {
 
             <p onClick={closeBar} className="absolute top-2 right-4 text-xl cursor-pointer">Stäng</p>
         </div>
-        <div style={{display: open === true ? 'block' : 'none' }} className="absolute bottom-0 left-0 z-40 bg-white">
+        <div style={{display: open === true ? 'none' : 'block' }} className="absolute bottom-0 left-0 z-40 bg-white">
          <p onClick={openBar} className="mx-4 my-2">🍪&nbsp;Cookie-inställningar</p>
        </div>
     </>
