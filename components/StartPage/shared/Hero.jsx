@@ -130,7 +130,7 @@ const Hero = ({ hero }) => {
                     onChange={(e) => setContactName(e.target.value)}
                   />
                 </div>
-
+ 
                 <div className="flex items-center gap-2 mb-3 ml-2 px-6">
                   <input type="checkbox" required />
                   <Link className="underline" href="/villkor/anvandarvillkor">
@@ -142,7 +142,7 @@ const Hero = ({ hero }) => {
                 <div className="text-right">
                   <button
                     type="submit"
-                    className="w-full h-[60px] bg-green-cta rounded-b-lg mt-10 text-white text-lg font-bold uppercase"
+                    className="w-full h-[60px] bg-green-cta rounded-b-lg mt-10 text-white text-lg font-bold uppercase hover:bg-green-faded transition duration-300 ease-in-out"
                   >
                     {sending == true ? <>Skickar</> : <>Ansök</>}
                   </button>

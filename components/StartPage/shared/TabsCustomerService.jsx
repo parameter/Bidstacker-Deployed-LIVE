@@ -67,7 +67,7 @@ const TabsCustomerService = () => {
     },
     {
       question: 'Hur kan byggföretag använda Bidstackers tjänst?',
-      answer: 'Byggföretagen kan använda Bidstacker för att inhämta flera offerter på byggvaror. Offerterna förmedlas därefter till rätt typer av återförsäljare som i sin tur då inkommer med ett erbjudande. Det lämnar köparen med bättre villkor och kortare ledtider.'
+      answer: 'Byggföretagen kan använda Bidstacker för att inhämta flera offerter på byggvaror. Förfrågningarna förmedlas beroende på deras innehåll till rätt återförsäljare. Det lämnar köparen med bättre villkor och kortare ledtider.'
     },
     {
       question: 'Kan vi få hjälp med leveranser?',

@@ -34,7 +34,8 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
           <h1 className={fontColor ? 'text-xl tablet:text-2xl leading-[28px] mb-6 text-white headline-shadow px-6' : 'text-xl tablet:text-2xl leading-[28px] mb-6 headline-shadow px-6'}>{subheading}</h1>
           <div className='block tablet:flex flex-wrap gap-3 tablet:gap-5 px-6'>
             <Link href='/hitta-byggvaror'>
-              <button
+              <button 
+                tabIndex="-1"
                 className={`relative rounded-lg w-full text-lg px-8 py-3 tablet:py-4 mb-6 font-semibold text-center bg-yellow rounded-3xl font-bold hero-cta-styles`}
               >
                 JÄMFÖR OFFERTER
@@ -42,6 +43,7 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
             </Link>
             <Link href='/bli-byggvaruhandlare'>
               <button
+                tabIndex="-1"
                 className={`relative rounded-lg w-full bg-[#425861] text-white font-semibold text-lg px-8 py-3 tablet:py-4 rounded-3xl mb-6 text-center hero-cta-styles`}
               >
                 SÄLJ BYGGMATERIAL
@@ -49,6 +51,7 @@ const Hero = ({ fontColor, userRole, heading, subheading, children }) => {
             </Link>
             <Link href='/leverera-byggvaror'>
               <button
+                tabIndex="-1"
                 className={`relative rounded-lg w-full bg-[#76A37A] text-lg font-semibold px-8 py-3 tablet:py-4 mb-6 rounded-3xl text-center hero-cta-styles`}
               >
                 LEVERERA BYGGVAROR
