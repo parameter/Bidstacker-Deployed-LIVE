@@ -50,9 +50,9 @@ const Navbar = ({ params }) => {
     <div 
       ref={mainNavRef}
       style={{
-        backgroundColor: scrolledDown && !isNavbarOpen ? navDownBg : '',
+        backgroundColor: isMobile ? '' : (scrolledDown && !isNavbarOpen ? navDownBg : ''),
       }}
-      className={`bg-yellow desktop:bg-transparent transition-colors w-full absolute tablet:fixed top-0 right-0 py-2 z-40 ${
+      className={`bg-yellow tablet:bg-transparent transition-colors w-full absolute tablet:fixed top-0 right-0 py-2 z-40 ${
         scrolledDown &&
         `tablet:shadow-sm tablet:ease-in z-40`
       } ${isNavbarOpen && '!shadow-none'}`}
@@ -61,7 +61,7 @@ const Navbar = ({ params }) => {
         <div className="flex items-center gap-4">
           <Link href="/">
             <div className="mobile:block desktop:hidden">
-              <LogoMobile color={logoColor} isNavbarOpen={isNavbarOpen} />
+              <LogoMobile color={logoColor} isNavbarOpen={isNavbarOpen} isMobile={isMobile} />
             </div>
             <div className="hidden mobile:hidden desktop:block">
               <LogoDesktop color={logoColor} isNavbarOpen={isNavbarOpen} />
@@ -102,7 +102,7 @@ const Navbar = ({ params }) => {
         className={`${
           isNavbarOpen ? 'hidden' : 'block'
         } absolute tablet:hidden desktop:hidden bg-[#795e28] top-full py-4 px-10 overflow-hidden z-[9999] w-full ${
-          isSticky ? 'sticky  shadow-sm !bg-white ease-in' : `absolute`
+          isSticky ? 'sticky shadow-sm ease-in' : `absolute`
         }`}
       >
         <ul className="flex justify-around">

@@ -25,7 +25,7 @@ export const AppProvider = ({ children }) => {
     // resize window 
     const handleResize = () => {
       // sticky
-      if (document.body.clientWidth < 1200) {
+      if (document.body.clientWidth < 960) {
         setIsMobile(true);
       } else {
         setIsMobile(false);

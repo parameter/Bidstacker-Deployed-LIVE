@@ -150,12 +150,17 @@ input:-webkit-autofill:focus {
 }
 @media (max-width: 960px) {
   .animated_morphing_words_container {
-    width: 216px;
+    width: 266px;
+  }
+}
+@media (max-width: 640px) {
+  .animated_morphing_words_container {
+    width: 174px;
   }
 }
 @media (max-width: 500px) {
   .animated_morphing_words_container {
-    width: 174px;
+    width: 164px;
   }
 }
 .animated_morphing_words_container span {
@@ -577,3 +582,16 @@ input:-webkit-autofill:focus {
 }
 
 */
+.hero-cta-styles:hover,
+.hero-cta-styles:hover:after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  bottom: -6px;
+  right: -6px;
+  border: 2px #FCFCFC solid;
+  border-radius: 11px;
+  opacity: 0.5;
+}
+

@@ -18,7 +18,7 @@ const RadioButtonsMenu = ({ scrolledDown, isNavbarOpen, mainMenuItems, radioButt
           <Link
             key={i}
             href={item.path}
-            className={`flex flex-row justify-center nav-item w-[150px] h-[58px] py-[10px] px-[20px] text-center rounded-full cursor-pointer z-[2] border-solid border-2 border-transparent focus-within:border-yellow focus:border-yellow item-${i} ${
+            className={`flex flex-row justify-center nav-item w-[150px] h-[58px] py-[10px] px-[20px] text-center rounded-full cursor-pointer z-[2] border-solid border-2 border-transparent hover:border-yellow focus-within:border-yellow focus:border-yellow item-${i} ${
               item.path === pathname ? 'active text-black' : ''
             }`}
           >  

@@ -1,4 +1,5 @@
-const LogoMobile = ({ color, isNavbarOpen }) => {
+const LogoMobile = ({ color, isNavbarOpen, isMobile }) => {
+ 
     /*
     if (isNavbarOpen) {
         color = {
@@ -13,10 +14,14 @@ const LogoMobile = ({ color, isNavbarOpen }) => {
         };
     }
     */
-    color = {
-        mobile: '#282623',
-        second : '#282623'
-    };
+
+    if (isMobile) {
+        color = {
+            mobile: '#282623',
+            second : '#282623'
+        };
+    }
+     
     return (<>
     <div className="w-full">
         <svg version="1.1" id="Layer_1" x="0px" y="0px"
