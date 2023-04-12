@@ -18,8 +18,6 @@ const CookieConsent = () => {
 
         const cookiebarClosed = Cookies.get('cookiebar-closed');
 
-        console.log('ytrewq', Cookies.get('cookiebar-closed'), Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
-
         let ana_allowed = Cookies.get('analytics-allowed') === 'true';
         let hot_allowed = Cookies.get('hotjar-allowed') === 'true';
 
