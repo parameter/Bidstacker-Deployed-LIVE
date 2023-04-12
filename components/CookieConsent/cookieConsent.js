@@ -124,8 +124,8 @@ const CookieConsent = () => {
     }
   
     return <>
-     {open === true ?  
-        <div className="fixed bottom-0 left-0 pt-6 desktop:pr-28 pb-6 px-2 tablet:px-6 bg-white w-full z-40 flex flex-col justify-items-center">
+      
+        <div style={{display: open === true ? 'flex' : 'none' }} className="fixed bottom-0 left-0 pt-6 desktop:pr-28 pb-6 px-2 tablet:px-6 bg-white w-full z-40 flex flex-col justify-items-center">
             {settingsOpen === false ? 
                 <p className="mr-6 mb-2">🍪&nbsp;Godkänn gärna våra kakor</p>
             : 
@@ -184,10 +184,9 @@ const CookieConsent = () => {
 
             <p onClick={closeBar} className="absolute top-2 right-4 text-xl cursor-pointer">Stäng</p>
         </div>
-     : <div className="absolute bottom-0 left-0 z-40 bg-white">
+        <div style={{display: open === true ? 'block' : 'none' }} className="absolute bottom-0 left-0 z-40 bg-white">
          <p onClick={openBar} className="mx-4 my-2">🍪&nbsp;Cookie-inställningar</p>
        </div>
-    }
     </>
 };
 

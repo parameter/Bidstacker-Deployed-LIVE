@@ -7,7 +7,6 @@ import MenuOverlay from '@/components/StartPage/navbar/MenuOverlay';
 import UserMenu from '@/components/Layout/UserMenu';
 import LogoDesktop from '@/components/Layout/LogoDesktop';
 import LogoMobile from '@/components/Layout/LogoMobile';
-import { useCurrentUser } from '@/lib/user';
 import { useAppContext } from 'context/app-context';
 import MobileFooter from './MobileFooter';
 import Hamburger from 'hamburger-react';
@@ -29,7 +28,6 @@ const mainMenuItems = [
 
 const Navbar = ({ params }) => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const { data: { user } = {}, mutate } = useCurrentUser();
   const mainNavRef = useRef();
   const mobileMenuRef = useRef();
   const [scrollbarWidth, setScrollbarWidth] = useState(null);
