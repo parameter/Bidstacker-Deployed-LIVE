@@ -48,6 +48,8 @@ export const AppProvider = ({ children }) => {
       }
     };
 
+    handleResize();
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     return () => {
