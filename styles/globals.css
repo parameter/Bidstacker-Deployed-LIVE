@@ -582,8 +582,9 @@ input:-webkit-autofill:focus {
 }
 
 */
-.hero-cta-styles:hover,
-.hero-cta-styles:hover:after {
+
+.hero-cta-styles:focus:before,
+.hero-cta-styles:hover:before {
   content: '';
   position: absolute;
   top: -6px;
