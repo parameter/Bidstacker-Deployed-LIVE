@@ -14,34 +14,27 @@ const CookieConsent = () => {
     const hotjarRef = useRef();
 
     useEffect(() => {
-        if (initiated) { return; }
-
-        console.log('document.cookie',document.cookie);
+        if (initiated || !analyticsRef.current || !hotjarRef.current) { return; }
 
         const cookiebarClosed = Cookies.get('cookiebar-closed');
 
-        console.log(cookiebarClosed, typeof cookiebarClosed);
+        console.log('ytrewq', Cookies.get('cookiebar-closed'), Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
+
+        let ana_allowed = Cookies.get('analytics-allowed') === 'true';
+        let hot_allowed = Cookies.get('hotjar-allowed') === 'true';
+
+        analyticsRef.current.checked = ana_allowed;
+        hotjarRef.current.checked = hot_allowed;
+        setAnalyticsAllowed(ana_allowed);
+        setHotjarAllowed(hot_allowed);
+
         if (cookiebarClosed === 'false' || typeof cookiebarClosed === 'undefined') {
-            console.log('HERE');
             setOpen(true);
-        } else {
-            setOpen(false);
         }
 
         setInitiated(true);
 
-    },[open, initiated, setInitiated, Cookies.get('cookiebar-closed')]);
-
-    useEffect(() => {
-        console.log('checking cookies 1', analyticsRef.current, hotjarRef.current);
-        if (!analyticsRef.current || !hotjarRef.current) {
-            return;
-        }
-        
-        // console.log('checking cookies', Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
-        analyticsRef.current.checked = (getCookie('analytics-allowed') === 'true');
-        hotjarRef.current.checked = (getCookie('hotjar-allowed') === 'true');
-    },[analyticsAllowed, hotjarAllowed]);
+    },[open, initiated, setInitiated, setAnalyticsAllowed, setHotjarAllowed, analyticsAllowed, hotjarAllowed]);
 
     const setCookie = (cname, cvalue, exdays) => {
         const d = new Date();
