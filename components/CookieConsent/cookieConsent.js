@@ -16,6 +16,8 @@ const CookieConsent = () => {
     useEffect(() => {
         if (initiated) { return; }
 
+        console.log('document.cookie',document.cookie);
+
         const cookiebarClosed = Cookies.get('cookiebar-closed');
 
         console.log(cookiebarClosed, typeof cookiebarClosed);
@@ -35,9 +37,10 @@ const CookieConsent = () => {
         if (!analyticsRef.current || !hotjarRef.current) {
             return;
         }
-        console.log('checking cookies', Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
-        analyticsRef.current.checked = (Cookies.get('analytics-allowed') === 'true');
-        hotjarRef.current.checked = (Cookies.get('hotjar-allowed') === 'true');
+        
+        // console.log('checking cookies', Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
+        analyticsRef.current.checked = (getCookie('analytics-allowed') === 'true');
+        hotjarRef.current.checked = (getCookie('hotjar-allowed') === 'true');
     },[analyticsAllowed, hotjarAllowed]);
 
     const setCookie = (cname, cvalue, exdays) => {
