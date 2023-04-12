@@ -95,6 +95,9 @@ const CookieConsent = () => {
         Cookies.set('hotjar-allowed', 'true', { expires: 60 });
         Cookies.set('cookiebar-closed', 'true', { expires: 60 });
 
+        analyticsRef.current.checked = true;
+        hotjarRef.current.checked = true;
+
         setTimeout(() => {
             setOpen(false);
         },900);
@@ -107,6 +110,9 @@ const CookieConsent = () => {
         Cookies.set('analytics-allowed', 'false', { expires: 60 });
         Cookies.set('hotjar-allowed', 'false', { expires: 60 });
         Cookies.set('cookiebar-closed', 'true', { expires: 60 });
+
+        analyticsRef.current.checked = false;
+        hotjarRef.current.checked = false;
 
         setTimeout(() => {
             setOpen(false);
