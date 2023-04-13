@@ -31,7 +31,7 @@ const Newsletter = ({ source }) => {
       window.removeEventListener('scroll', onScroll);
     };
   },[setElementOffsetTop, elementOffsetTop, elementHeight, setElementHeight, activeHref, setActiveHref, source])
-
+ 
   return (
     <div ref={ref} className="relative w-full bg-yellow dark:bg-gray-dark h-[400px] tablet:h-[600px]">
       <div className="hidden tablet:block absolute top-0 left-0 w-full h-full dark:bg-black/70"></div>
@@ -44,18 +44,17 @@ const Newsletter = ({ source }) => {
         muted
       />
       <div className="absolute top-0 w-full h-full flex flex-col items-center justify-center">
-        <div className="bg-yellow dark:bg-gray-dark rounded-3xl w-full tablet:w-[600px] h-[270px] flex flex-col justify-center items-center">
-          <h3 className="font-bold text-2xl uppercase">Nyhetsbrev !</h3>
-          <p className="text-lg text-center px-3 mt-2">
+        <div className="bg-gray-creamy-dark rounded-lg p-8 w-full w-[480px] flex flex-col justify-center items-center">
+          <p className="text-2xl text-white font-bold text-center px-3 mb-2">
             Följ oss och få nyheter direkt !
           </p>
 
-          <div className="flex flex-col tablet:flex-row justify-between items-center bg-white w-[75%] rounded-xl mt-5">
+          <div className="flex flex-col tablet:flex-row justify-between items-center bg-white rounded-xl mt-5 mb-4">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Din epost adress"
+              placeholder="Din epost"
               className="w-[95%] tablet:w-auto flex-grow outline-0 text-md text-[#223645] px-4 py-2  mt-4 tablet:mt-2 tablet:mb-2 ml-2"
             />
 
@@ -66,7 +65,7 @@ const Newsletter = ({ source }) => {
               }}
               className="flex w-full tablet:w-auto"
             >
-              <button className="w-full tablet:w-auto flex justify-center gap-2 flex-row items-center font-bold rounded-xl bg-black dark:bg-yellow px-8 py-2.5 text-white mx-3 mb-5 tablet:mr-3 tablet:mt-3 tablet:mb-3">
+              <button className="w-full tablet:w-auto flex justify-center gap-2 flex-row items-center font-bold rounded-xl bg-green-cta px-8 py-2.5 text-white mx-3 mb-5 tablet:mr-3 tablet:mt-3 tablet:mb-3">
                 <AiOutlineHeart />
                 Följ oss
               </button>
