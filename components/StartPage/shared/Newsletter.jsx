@@ -44,7 +44,7 @@ const Newsletter = ({ source }) => {
         muted
       />
       <div className="absolute top-0 w-full h-full flex flex-col items-center justify-center">
-        <div className="bg-gray-creamy-dark rounded-lg p-8 w-full w-[480px] flex flex-col justify-center items-center">
+        <div className="bg-gray-creamy-dark rounded-lg p-8 w-[480px] flex flex-col justify-center items-center">
           <p className="text-2xl text-white font-bold text-center px-3 mb-2">
             Följ oss och få nyheter direkt !
           </p>
