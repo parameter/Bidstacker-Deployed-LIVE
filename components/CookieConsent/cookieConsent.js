@@ -14,34 +14,27 @@ const CookieConsent = () => {
     const hotjarRef = useRef();
 
     useEffect(() => {
-        if (initiated) { return; }
-
-        console.log('document.cookie',document.cookie);
+        if (initiated || !analyticsRef.current || !hotjarRef.current) { return; }
 
         const cookiebarClosed = Cookies.get('cookiebar-closed');
 
-        console.log(cookiebarClosed, typeof cookiebarClosed);
+        console.log('ytrewq', Cookies.get('cookiebar-closed'), Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
+
+        let ana_allowed = Cookies.get('analytics-allowed') === 'true';
+        let hot_allowed = Cookies.get('hotjar-allowed') === 'true';
+
+        analyticsRef.current.checked = ana_allowed;
+        hotjarRef.current.checked = hot_allowed;
+        setAnalyticsAllowed(ana_allowed);
+        setHotjarAllowed(hot_allowed);
+
         if (cookiebarClosed === 'false' || typeof cookiebarClosed === 'undefined') {
-            console.log('HERE');
             setOpen(true);
-        } else {
-            setOpen(false);
         }
 
         setInitiated(true);
 
-    },[open, initiated, setInitiated, Cookies.get('cookiebar-closed')]);
-
-    useEffect(() => {
-        console.log('checking cookies 1', analyticsRef.current, hotjarRef.current);
-        if (!analyticsRef.current || !hotjarRef.current) {
-            return;
-        }
-        
-        // console.log('checking cookies', Cookies.get('analytics-allowed'), Cookies.get('hotjar-allowed'));
-        analyticsRef.current.checked = (getCookie('analytics-allowed') === 'true');
-        hotjarRef.current.checked = (getCookie('hotjar-allowed') === 'true');
-    },[analyticsAllowed, hotjarAllowed]);
+    },[open, initiated, setInitiated, setAnalyticsAllowed, setHotjarAllowed, analyticsAllowed, hotjarAllowed]);
 
     const setCookie = (cname, cvalue, exdays) => {
         const d = new Date();
@@ -102,6 +95,9 @@ const CookieConsent = () => {
         Cookies.set('hotjar-allowed', 'true', { expires: 60 });
         Cookies.set('cookiebar-closed', 'true', { expires: 60 });
 
+        analyticsRef.current.checked = true;
+        hotjarRef.current.checked = true;
+
         setTimeout(() => {
             setOpen(false);
         },900);
@@ -115,6 +111,9 @@ const CookieConsent = () => {
         Cookies.set('hotjar-allowed', 'false', { expires: 60 });
         Cookies.set('cookiebar-closed', 'true', { expires: 60 });
 
+        analyticsRef.current.checked = false;
+        hotjarRef.current.checked = false;
+
         setTimeout(() => {
             setOpen(false);
         },900);
@@ -125,8 +124,8 @@ const CookieConsent = () => {
     }
   
     return <>
-     {open === true ?  
-        <div className="fixed bottom-0 left-0 pt-6 desktop:pr-28 pb-6 px-2 tablet:px-6 bg-white w-full z-40 flex flex-col justify-items-center">
+      
+        <div style={{display: open === true ? 'flex' : 'none' }} className="fixed bottom-0 left-0 pt-6 desktop:pr-28 pb-6 px-2 tablet:px-6 bg-white w-full z-40 flex flex-col justify-items-center">
             {settingsOpen === false ? 
                 <p className="mr-6 mb-2">🍪&nbsp;Godkänn gärna våra kakor</p>
             : 
@@ -185,10 +184,9 @@ const CookieConsent = () => {
 
             <p onClick={closeBar} className="absolute top-2 right-4 text-xl cursor-pointer">Stäng</p>
         </div>
-     : <div className="absolute bottom-0 left-0 z-40 bg-white">
+        <div style={{display: open === true ? 'none' : 'block' }} className="absolute bottom-0 left-0 z-40 bg-white">
          <p onClick={openBar} className="mx-4 my-2">🍪&nbsp;Cookie-inställningar</p>
        </div>
-    }
     </>
 };
 
