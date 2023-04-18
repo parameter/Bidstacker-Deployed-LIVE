@@ -81,14 +81,14 @@ handler.post(
         text: TEXT_EmailTemplate({
             title: `Välkommen ${contactName ? contactName : 'fantastiska människa'} till Bidstacker!`,
             content_paragraphs: [
-                'Tack för ert visade intresse för att använda vår tjänst! Vi hör av oss när ert konto aktiverats samt vid kommande nyhetsuppdateringar om tjänsten.'
+                'Tack för ert visade intresse att använda vår tjänst! Vi hör av oss när ert konto aktiverats samt vid kommande nyhetsuppdateringar om tjänsten.'
             ],
             signoff: 'Vänliga hälsningar, teamet på Bidstacker'
         }),
         html: HTML_EmailTemplate({
             title: `Välkommen ${contactName ? contactName : 'fantastiska människa'} till Bidstacker!`,
             content_paragraphs: [
-                'Tack för ert visade intresse för att använda vår tjänst! Vi hör av oss när ert konto aktiverats samt vid kommande nyhetsuppdateringar om tjänsten.'
+                'Tack för ert visade intresse att använda vår tjänst! Vi hör av oss när ert konto aktiverats samt vid kommande nyhetsuppdateringar om tjänsten.'
             ],
             signoff: 'Vänliga hälsningar, teamet på Bidstacker',
             assets_domain: 'https://bidstacker.vercel.app'

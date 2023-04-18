@@ -141,7 +141,7 @@ input:-webkit-autofill:focus {
   position: relative;
   filter: url(#threshold) blur(0.6px);
   text-align: center;
-  width: 320px;
+  width: 420px;
 }
 @media (max-width: 1280px) {
   .animated_morphing_words_container {
@@ -151,6 +151,7 @@ input:-webkit-autofill:focus {
 @media (max-width: 960px) {
   .animated_morphing_words_container {
     width: 266px;
+    text-align: left;
   }
 }
 @media (max-width: 640px) {
@@ -165,12 +166,15 @@ input:-webkit-autofill:focus {
 }
 .animated_morphing_words_container span {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   display: inline-block;
   text-align: center;
   user-select: none;
+}
+
+.startpage-hero-splash {
+  padding: 30px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkTAAAAGgAY0BgNCMAAAAASUVORK5CYII=);
 }
 
 .home-svg-part__car {

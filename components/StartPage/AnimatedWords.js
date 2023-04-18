@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 
 const AnimatedWords = ({ fontColor }) => {
     const [animatedWordText_one, setAnimatedWordText_one] = useState('');
@@ -100,17 +101,24 @@ const AnimatedWords = ({ fontColor }) => {
       }
   
     },[animatedWord_one, animatedWord_two])
-  
+ 
     return (<>
-      <div className={'w-full tablet:w-auto mb-2 text-orange headline-shadow pl-6 flex flex-row flex-wrap font-bold max-[500px]:text-4xl text-5xl mobile:text-6xl tablet:text-6xl desktop:text-7xl'}>
-        EN&nbsp;
+      <div className={'relative block tablet:w-auto mb-2 text-orange headline-shadow font-bold max-[500px]:text-4xl text-5xl mobile:text-6xl tablet:text-8xl desktop:text-8xl'}>
         
-        <span className="animated_morphing_words_container text-[#76A37A]">
+        <Image 
+          src='/assets/svg/bidstacker-splash000.svg'
+          alt="Bidstacker early access"
+          width={220}
+          height={240}
+          className="absolute -right-6 mobile:right-0 -translate-y-3/4 top-0 w-[120px] mobile:w-[220px] desktop:w-[280px]"
+        />
+        
+        EN&nbsp;
+        <span className="animated_morphing_words_container text-white">
           <span ref={animatedWord_one}>{animatedWordText_one}</span>
           <span ref={animatedWord_two}>{animatedWordText_two}</span>
         </span>
-  
-        <span>&nbsp;</span>
+        <br />
         MATERIALHANDEL
       </div>
     </>)
