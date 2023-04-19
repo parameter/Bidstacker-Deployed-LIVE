@@ -80,7 +80,7 @@ export default async function Home() {
         </h1>
       </div>
 
-      <div className="relative bg-[url('/assets/svg/home-graphix-mobile.svg')] mobile:bg-[url('/assets/svg/home-graphix-00.svg')] tablet:bg-[url('/assets/svg/home-graphix-00.svg')] bg-no-repeat flex flex-col items-center py-6 home-svg-part">
+      <div className="relative bg-[url('/assets/svg/home-graphix-mobile2.svg')] mobile:bg-[url('/assets/svg/home-graphix-00.svg')] tablet:bg-[url('/assets/svg/home-graphix-00.svg')] bg-no-repeat flex flex-col items-center py-6 home-svg-part">
         <div className="flex flex-col mobile:flex-col tablet:flex-row pl-6 pr-6 tablet:pr-0 home-svg-part__section-one">
           <div className="mobile:w-full tablet:w-2/3">
             <h3 className="text-3xl mobile:text-5xl text-white mb-4">

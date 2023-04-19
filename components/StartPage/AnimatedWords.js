@@ -103,7 +103,7 @@ const AnimatedWords = ({ fontColor }) => {
     },[animatedWord_one, animatedWord_two])
  
     return (<>
-      <div className={'relative block tablet:w-auto mb-2 text-orange headline-shadow font-bold max-[500px]:text-4xl text-5xl mobile:text-6xl tablet:text-8xl desktop:text-8xl'}>
+      <div className={'relative block tablet:w-auto mb-2 text-orange headline-shadow font-bold max-[500px]:text-4xl text-5xl mobile:text-6xl tablet:text-7xl desktop:text-7xl'}>
         
         <Image 
           src='/assets/svg/bidstacker-splash000.svg'

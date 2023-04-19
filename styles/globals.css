@@ -194,23 +194,15 @@ input:-webkit-autofill:focus {
   max-width: 1400px;
 }
 .home-svg-part__section-one {
-  margin-top: 3%;
+  margin-top: 6%;
   margin-bottom: 9%;
 }
 .home-svg-part__section-two {
-  margin-top: 5%;
+  margin-top: 6%;
   margin-bottom: 8%;
 }
 
-@media (max-width: 500px) {
-  .home-svg-part {
-    background-image: url(/assets/svg/home-graphix-mobile2.svg);
-  }
-}
-
-
-
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .home-svg-part {
     background-position: 0 0;
     background-size: 1200px auto;
@@ -274,7 +266,7 @@ input:-webkit-autofill:focus {
     margin-bottom: 15%;
   }
   .home-svg-part__section-two {
-    padding-top: 0;
+    padding-top: 5%;
     padding-bottom: 0;
     margin-top: 8%;
     margin-bottom: 20%;
@@ -300,6 +292,7 @@ input:-webkit-autofill:focus {
     margin-bottom: 10%;
   }
 }
+
 
 /* ---------RADIOBUTTONS NAVBAR--------- */
 
