@@ -176,6 +176,13 @@ input:-webkit-autofill:focus {
   padding: 30px;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkTAAAAGgAY0BgNCMAAAAASUVORK5CYII=);
 }
+@media (max-width: 400px) {
+    
+  .startpage-hero-splash {
+    padding: 30px 15px;
+  }
+
+}
 
 .home-svg-part__car {
   width: 200px;
