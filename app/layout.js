@@ -15,6 +15,7 @@ export default function RootLayout({ children, params }) {
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="p4FxzbsEk0ZAkUsbdf1ypTXT9IfapllJpWoiA8pAgIY" />
         <HeadComp />
         <ServerPageWrapper>
           <InjectedScripts />
